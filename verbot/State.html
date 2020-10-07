@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>State | Verbot Unofficial Documentation</title>
+	</head>
+	<header>
+		<a href="../verbotindex.html"><h1>Verbot Unofficial Documentation</h1></a>
+		<hr>
+	</header>
+	<body>
+		<h2><code>public class State</code></h2> 
+		<div style="padding-left:2em;word-wrap:break-word;">
+			<h3><code>public List&lt;string&gt; CurrentKBs</code></h3>
+			- List containing the filepaths of all current KnowledgeBases.<sup>[Verification needed]</sup>
+			<br>
+			<br>
+			<h3><code>public Hashtable Vars</code></h3>
+			- Hash table containing all variables used throughout runtime.
+			- Initialized with the following:
+			<div style="padding-left:2em;word-wrap:break-word;">
+				<table>
+					<tr>
+						<th>Key</th>
+						<th>Value</th>
+					</tr>
+					<tr>
+						<td>"_input"</td>
+						<td>The input given this iteration.</td>
+					</tr>
+					<tr>
+						<td>"_lastinput"</td>
+						<td>The last input given.</td>
+					</tr>
+					<tr>
+						<td>"_lastfired"</td>
+						<td>The rule ID of the last rule fired.</td>
+					</tr>
+					<tr>
+						<td>"_time"</td>
+						<td>DateTime.Now.ToString("h:mm tt");</td>
+					</tr>
+					<tr>
+						<td>"_time24"</td>
+						<td>DateTime.Now.ToString("HH:mm");</td>
+					</tr>
+					<tr>
+						<td>"_date"</td>
+						<td>DateTime.Now.ToString("MMM. d, yyyy");</td>
+					</tr>
+					<tr>
+						<td>"_month"</td>
+						<td>DateTime.Now.ToString("MMMM");</td>
+					</tr>
+					<tr>
+						<td>"_dayofmonth"</td>
+						<td>DateTime.Now.ToString("d ").Trim();</td>
+					</tr>
+					<tr>
+						<td>"_year"</td>
+						<td>DateTime.Now.ToString("yyyy");</td>
+					</tr>
+					<tr>
+						<td>"_dayofweek"</td>
+						<td>DateTime.Now.ToString("dddd");</td>
+					</tr>
+				</table>
+			</div>
+			<br>
+			- Note: to use the variables in Vars in the <code>&lt;?csharp ?&gt;</code> block, use the variable name <code>vars</code> instead. This is because the command parser <code><a href="CSharpToolbox.html">CSharpToolbox</a></code> uses <code>vars</code> (as the function parameter name).
+		</div>
+	</body>
+</html>
