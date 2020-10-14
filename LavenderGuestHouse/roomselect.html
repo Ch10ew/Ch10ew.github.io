@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+<!-- Head -->
+<head>
+	<!-- Title -->
+	<title>Home | Lavender Guest House</title>
+	
+	<!-- Local css -->
+	<link href="style.css" rel="stylesheet">
+	
+	<!-- Online fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Darker Grotesque' rel='stylesheet'>
+</head>
+
+<!-- Body -->
+<body>
+	<!-- Header -->
+	<header>
+		<div class="headerbg"></div>
+		<!-- Navigation Bar -->
+		<div class="navbar">
+			<a style="padding: 12px 30px 8px 30px;" href="index.html#"><img style="width: 32px; height: 32px;" src="images/icon-white.png"></a>
+			
+			<div class="navbar navbar-item">
+				<a href="index.html#">Home</a>
+				<a href="rooms.html#">Rooms</a>
+				<a href="booking.html#">Booking</a>
+				<a href="contactus.html">Contact Us</a>
+				<a href="login.html">Login</a>
+			</div>
+		</div>
+	</header>
+	
+	<!-- Start of content -->
+	<div class="content">
+		<br>
+		<br>
+		<br>
+		
+		<!-- Room Select -->
+		<section id="Room_Select">
+			<h1>Room Availability & Room Select</h1>
+			<p>A few more steps to go!</p>
+			<div class="column-container">
+				<!-- Left Column -->
+				<div class="column" style="flex: 25%;">
+					<div style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<h3>Details</h3>
+						<form>
+							<label>First Name:</label><br>
+							<input type="text" id="fname" name="fname" value="Placeholder" disabled><br>
+							<br>
+							<label>Last Name:</label><br>
+							<input type="text" id="lname" name="lname"  value="Placeholder" disabled><br>
+							<br>
+							<label>Email Address:</label><br>
+							<input type="text" id="email" name="email"  value="Placeholder" disabled><br>
+							<br>
+							<label>Contact Number:</label><br>
+							<input type="text" id="contact" name="contact"  value="Placeholder" disabled><br>
+						</form>
+					</div>
+				</div>
+				
+				<!-- Right Column -->
+				<div class="column" style="flex: 75%;">
+					<!-- Right Column Top Row -->
+					<div style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<form>
+							<label>Duration of Stay:</label><br>
+							<div class="column-container" >
+								<div class="column-container column" style="flex: 80%; padding: 0;">
+									<div class="column" style="flex: 45%; padding: 0;">
+										<input type="datetime-local" style="margin-left: 0;" id="startdate" name="startdate" placeholder="Start Date">
+									</div>
+									<pre style="margin: 0; padding: 10px 10px 0 10px;"> to </pre>
+									<div class="column" style="flex: 45%; padding: 0;">
+										<input type="datetime-local" style="margin-right: 0;" id="enddate" name="enddate" placeholder="End Date">
+									</div>
+								</div>
+								
+								<div class="column" style="flex: 20%; padding: 0;">
+									<div class="flexbox-center">
+										<button>Filter</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+					<!-- Right Column Bottom Row(s) -->
+					<div class="column-container" style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<!-- Picture -->
+						<div class="column" style="flex: 30%; padding: 0;">
+							<div class="container" style="min-height: 200px;">
+								<img class="centered" style="width: auto; display: block;" src="images/logo.png">
+							</div>
+						</div>
+						
+						<!-- Description -->
+						<div class="column" style="flex: 45%; padding: 0 10px 0 20px;">
+							<div style="word-break: break-all;">
+								<h4 style="text-align: left; margin: 0 0 10px 0;">Deluxe King</h4>
+								<p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales eget ante fermentum sagittis. Suspendisse nec finibus mauris, in viverra nunc.</p>
+							</div>
+						</div>
+						
+						<!-- Pricing and Buttons -->
+						<div class="column" style="position: relative; flex: 25%; padding: 0 20px 0 10px;">
+							<div style="word-break: break-all;">
+								<p style="text-align: right; font-size: 30px; margin-bottom: 10px;">RM 120.00</p>
+								<p style="text-align: right;"><i>Prices are per room</i><br>
+								<em>Non-refundable</em></p>
+							</div>
+							<div style="position: absolute; bottom: 0; right: 0;">
+								<button>Book Now</button>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+					<div class="column-container" style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<!-- Picture -->
+						<div class="column" style="flex: 30%; padding: 0;">
+							<div class="container" style="min-height: 200px;">
+								<img class="centered" style="width: auto; display: block;" src="images/logo.png">
+							</div>
+						</div>
+						
+						<!-- Description -->
+						<div class="column" style="flex: 45%; padding: 0 10px 0 20px;">
+							<div style="word-break: break-all;">
+								<h4 style="text-align: left; margin: 0 0 10px 0;">Deluxe Twin</h4>
+								<p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales eget ante fermentum sagittis. Suspendisse nec finibus mauris, in viverra nunc.</p>
+							</div>
+						</div>
+						
+						<!-- Pricing and Buttons -->
+						<div class="column" style="position: relative; flex: 25%; padding: 0 20px 0 10px;">
+							<div style="word-break: break-all;">
+								<p style="text-align: right; font-size: 30px; margin-bottom: 10px;">RM 160.00</p>
+								<p style="text-align: right;"><i>Prices are per room</i><br>
+								<em>Non-refundable</em></p>
+							</div>
+							<div style="position: absolute; bottom: 0; right: 0;">
+								<button>Book Now</button>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+					<div class="column-container" style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<!-- Picture -->
+						<div class="column" style="flex: 30%; padding: 0;">
+							<div class="container" style="min-height: 200px;">
+								<img class="centered" style="width: auto; display: block;" src="images/logo.png">
+							</div>
+						</div>
+						
+						<!-- Description -->
+						<div class="column" style="flex: 45%; padding: 0 10px 0 20px;">
+							<div style="word-break: break-all;">
+								<h4 style="text-align: left; margin: 0 0 10px 0;">Superior King</h4>
+								<p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales eget ante fermentum sagittis. Suspendisse nec finibus mauris, in viverra nunc.</p>
+							</div>
+						</div>
+						
+						<!-- Pricing and Buttons -->
+						<div class="column" style="position: relative; flex: 25%; padding: 0 20px 0 10px;">
+							<div style="word-break: break-all;">
+								<p style="text-align: right; font-size: 30px; margin-bottom: 10px;">RM 180.00</p>
+								<p style="text-align: right;"><i>Prices are per room</i><br>
+								<em>Non-refundable</em></p>
+							</div>
+							<div style="position: absolute; bottom: 0; right: 0;">
+								<button>Book Now</button>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+					<div class="column-container" style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<!-- Picture -->
+						<div class="column" style="flex: 30%; padding: 0;">
+							<div class="container" style="min-height: 200px;">
+								<img class="centered" style="width: auto; display: block;" src="images/logo.png">
+							</div>
+						</div>
+						
+						<!-- Description -->
+						<div class="column" style="flex: 45%; padding: 0 10px 0 20px;">
+							<div style="word-break: break-all;">
+								<h4 style="text-align: left; margin: 0 0 10px 0;">Superior Twin</h4>
+								<p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales eget ante fermentum sagittis. Suspendisse nec finibus mauris, in viverra nunc.</p>
+							</div>
+						</div>
+						
+						<!-- Pricing and Buttons -->
+						<div class="column" style="position: relative; flex: 25%; padding: 0 20px 0 10px;">
+							<div style="word-break: break-all;">
+								<p style="text-align: right; font-size: 30px; margin-bottom: 10px;">RM 200.00</p>
+								<p style="text-align: right;"><i>Prices are per room</i><br>
+								<em>Non-refundable</em></p>
+							</div>
+							<div style="position: absolute; bottom: 0; right: 0;">
+								<button>Book Now</button>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+					<div class="column-container" style="padding: 20px; background-color: rgba(122, 114, 148, 0.75);">
+						<!-- Picture -->
+						<div class="column" style="flex: 30%; padding: 0;">
+							<div class="container" style="min-height: 200px;">
+								<img class="centered" style="width: auto; display: block;" src="images/logo.png">
+							</div>
+						</div>
+						
+						<!-- Description -->
+						<div class="column" style="flex: 45%; padding: 0 10px 0 20px;">
+							<div style="word-break: break-all;">
+								<h4 style="text-align: left; margin: 0 0 10px 0;">Family Suite</h4>
+								<p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales eget ante fermentum sagittis. Suspendisse nec finibus mauris, in viverra nunc.</p>
+							</div>
+						</div>
+						
+						<!-- Pricing and Buttons -->
+						<div class="column" style="position: relative; flex: 25%; padding: 0 20px 0 10px;">
+							<div style="word-break: break-all;">
+								<p style="text-align: right; font-size: 30px; margin-bottom: 10px;">RM 240.00</p>
+								<p style="text-align: right;"><i>Prices are per room</i><br>
+								<em>Non-refundable</em></p>
+							</div>
+							<div style="position: absolute; bottom: 0; right: 0;">
+								<button>Book Now</button>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					
+				</div>
+			</div>
+		</section>
+		
+		<br>
+		<br>
+		<br>
+	</div>
+	
+	<!-- Footer -->
+	<footer>		
+		@ 2020 Me
+	</footer>
+</body>
+</html>
