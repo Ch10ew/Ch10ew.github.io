@@ -1,0 +1,117 @@
+/* Width and height applies to all parts of the elements for everything */
+* {
+	box-sizing: border-box;
+	font-family: 'Assistant';
+}
+
+
+/* */
+h1 {
+	font-family: 'Barlow';
+	font-size: 65px;
+	font-weight: normal;
+}
+
+
+/* Heading 5 */
+h5 {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding: 10px;
+}
+
+
+/* Style the body */
+body {
+	background: no-repeat center fixed;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("images/squares.jpg");
+	background-size: cover;
+	margin: 0;
+	text-align: center;
+}
+
+
+/* Header */
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+	border-bottom: 1px;
+	border-bottom-color: #4f4d61;
+	border-bottom-style: solid;
+	color: #29125c;
+	padding: 0px;
+	position: sticky !important;
+	text-align: center;
+	top: 0;
+}
+
+
+/* Main Content */
+.content {
+	padding: 20px;
+}
+
+
+
+.content section {
+	background-color: rgba(53, 51, 71, 0.5);
+	color: white;
+	padding: 20px;
+}
+
+
+/* Footer */
+footer {
+	background-color: #13072e;
+	color: #e1ddff;
+	padding: 20px;
+	text-align: center;
+}
+
+
+/* Sytles images to auto resize */
+img {
+	width: 95vw;
+}
+
+
+/* Style the top navigation bar */
+.navbar {
+	display: flex;
+}
+
+
+/* Style the navigation bar links */
+.navbar-item a {
+	color: #e1ddff;
+	float: left;
+	padding: 12px 30px;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.5s;
+	transition: href 0.5s;
+}
+
+
+/* Change color on hover */
+.navbar-item a:hover {
+	background-color: rgba(201, 194, 255, 0.5);
+}
+
+
+/* Column container */
+/*.row {  
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+}*/
+
+
+/* Mobile / Desktop responsive layout for button columns */
+@media screen and (max-width: 700px) {
+	.navbar {   
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}
+
+
