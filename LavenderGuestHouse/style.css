@@ -3,6 +3,7 @@ html {
 	scroll-behavior: smooth;
 }
 
+
 * {
 	box-sizing: border-box;
 	font-family: 'Assistant';
@@ -28,8 +29,8 @@ h5 {
 	font-family: 'Darker Grotesque';
 	font-size: 24px;
 	font-weight: normal;
-	margin-bottom: 0px;
-	margin-top: 0px;
+	margin-bottom: 0;
+	margin-top: 0;
 	padding: 10px;
 }
 
@@ -59,6 +60,22 @@ button:hover {
 }
 
 
+form {
+	text-align: left;
+	line-height: 1.5;
+}
+
+
+input[type=text], input[type=datetime-local], textarea, select {
+	border: 1px solid #461552;
+	border-radius: 8px;
+	display: inline-block;
+	margin: 0;
+	padding: 10px 20px;
+	width: 100%;
+}
+
+
 /* General Body Styling */
 body {
 	background: no-repeat center fixed;
@@ -77,7 +94,7 @@ header {
 	border-bottom-style: solid;
 	color: #29125c;
 	backdrop-filter: blur(4px);
-	padding: 0px;
+	padding: 0;
 	position: sticky !important;
 	text-align: center;
 	top: 0;
@@ -87,7 +104,7 @@ header {
 
 /* Main Content */
 .content {
-	padding: 20px 0px;
+	padding: 20px 0;
 }
 
 
@@ -130,7 +147,7 @@ footer {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
 	.navbar {   
 		flex-direction: column;
 		flex-wrap: wrap;
@@ -160,5 +177,16 @@ footer {
 
 .column {
 	flex: 50%;
-	padding: 20px;
+	padding: 60px;
 }
+
+
+@media screen and (max-width: 1000px) {
+	.column-container {   
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}
+
+
+

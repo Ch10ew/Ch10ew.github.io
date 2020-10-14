@@ -21,7 +21,7 @@
 		<div class="headerbg"></div>
 		<!-- Navigation Bar -->
 		<div class="navbar">
-			<a style="padding: 10px 30px;" href="#"><img style="width: 32px; height: 32px;" src="images/icon-white.png"></a>
+			<a style="padding: 10px 30px;" href="index.html#"><img style="width: 32px; height: 32px;" src="images/icon-white.png"></a>
 			
 			<div class="navbar navbar-item">
 				<a href="index.html#">Home</a>
@@ -38,14 +38,56 @@
 		<br>
 		<br>
 		
-		<!-- Introduction -->
+		<!-- Booking -->
 		<section id="Booking">
 			<h1>Booking</h1>
 			
-			<p>a</p>
-			<br>
-			<br>
-			<br>
+			<div class="column-container">
+				<!-- Left column -->
+				<div class="column">
+					<form>
+						<label>First Name:</label><br>
+						<input type="text" id="fname" name="fname" placeholder="First Name"><br>
+						<br>
+						<label>Last Name:</label><br>
+						<input type="text" id="lname" name="lname" placeholder="Last Name"><br>
+						<br>
+						<label>Email Address:</label><br>
+						<input type="text" id="email" name="email" placeholder="Email Address"><br>
+						<br>
+						<label>Contact Number:</label><br>
+						<input type="text" id="contact" name="contact" placeholder="Contact Number"><br>
+					</form>
+				</div>
+				
+				<!-- Right column -->
+				<div class="column">
+					<form>
+						<label>Room Type:</label><br>
+						<select id="room" name="room" placeholder="Room Type">
+							<option value="deluxeking">Deluxe-King</option>
+							<option value="deluxetwin">Deluxe-Twin</option>
+							<option value="superiorking">Superior-King</option>
+							<option value="superiortwin">Superior-Twin</option>
+							<option value="familysuite">Family Suite</option>
+						</select><br>
+						<br>
+						<label>Duration of Stay:</label><br>
+						<div class="column-container" >
+							<div class="column" style="flex: 45%; padding: 0;">
+								<input type="datetime-local" style="margin-left: 0;" id="lname" name="lname" placeholder="Start Date">
+							</div>
+							<pre style="margin: 0; padding: 10px 0 0 0;"> to </pre>
+							<div class="column" style="flex: 45%; padding: 0;">
+								<input type="datetime-local" style="margin-right: 0;" id="lname" name="lname" placeholder="End Date">
+							</div>
+						</div><br>
+						<label>Additional Remarks (Leave blank if none):</label><br>
+						<textarea rows="5" placeholder="Remarks"></textarea>
+					</form>
+				</div>
+			</div>
+			<button>Book Now</button>
 		</section>
 		
 		<br>
