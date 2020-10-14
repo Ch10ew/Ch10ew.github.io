@@ -1,59 +1,100 @@
-/* Width and height applies to all parts of the elements for everything */
+/* General Styling */
+html {
+	scroll-behavior: smooth;
+}
+
 * {
 	box-sizing: border-box;
 	font-family: 'Assistant';
+	font-size: 20px;
 }
 
 
-/* */
 h1 {
-	font-family: 'Barlow';
+	font-family: 'Darker Grotesque';
 	font-size: 65px;
 	font-weight: normal;
 }
 
 
-/* Heading 5 */
+h2 {
+	font-family: 'Darker Grotesque';
+	font-size: 55px;
+	font-weight: normal;
+}
+
+
 h5 {
+	font-family: 'Darker Grotesque';
+	font-size: 24px;
+	font-weight: normal;
 	margin-bottom: 0px;
 	margin-top: 0px;
 	padding: 10px;
 }
 
 
-/* Style the body */
+img {
+	width: 95vw;
+}
+
+
+button {
+	background-color: #e8d0f5;
+	border: none;
+	border-radius: 35px;
+	color: #8835b5;
+	display: inline-block;
+	font-weight: normal;
+	padding: 18px 55px;
+	text-decoration: none;
+	transition: background-color 0.3s, color 0.3s !important;
+}
+
+button:hover {
+	background-color: #bf9dc7;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	color: #4d4fff;
+	font-weight: bold;
+}
+
+
+/* General Body Styling */
 body {
 	background: no-repeat center fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("images/squares.jpg");
+	background-image: linear-gradient(rgba(130, 130, 130, 0.65), rgba(60, 60, 60, 0.75)), url("images/bg.jpg");
 	background-size: cover;
 	margin: 0;
 	text-align: center;
 }
 
 
-/* Header */
+/* Header Styling */
 header {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
 	border-bottom: 1px;
 	border-bottom-color: #4f4d61;
 	border-bottom-style: solid;
 	color: #29125c;
+	backdrop-filter: blur(4px);
 	padding: 0px;
 	position: sticky !important;
 	text-align: center;
 	top: 0;
+	z-index: 100 !important;
 }
 
 
 /* Main Content */
 .content {
-	padding: 20px;
+	padding: 20px 0px;
 }
 
 
 
 .content section {
-	background-color: rgba(53, 51, 71, 0.5);
+	background-color: rgba(53, 51, 71, 0.65);
+	backdrop-filter: blur(2px);
 	color: white;
 	padding: 20px;
 }
@@ -68,19 +109,12 @@ footer {
 }
 
 
-/* Sytles images to auto resize */
-img {
-	width: 95vw;
-}
-
-
-/* Style the top navigation bar */
+/* Navigation Bar Styling */
 .navbar {
 	display: flex;
 }
 
 
-/* Style the navigation bar links */
 .navbar-item a {
 	color: #e1ddff;
 	float: left;
@@ -88,25 +122,14 @@ img {
 	text-align: center;
 	text-decoration: none;
 	transition: background-color 0.5s;
-	transition: href 0.5s;
 }
 
 
-/* Change color on hover */
 .navbar-item a:hover {
 	background-color: rgba(201, 194, 255, 0.5);
 }
 
 
-/* Column container */
-/*.row {  
-	display: flex;
-	flex-direction: row-reverse;
-	flex-wrap: wrap;
-}*/
-
-
-/* Mobile / Desktop responsive layout for button columns */
 @media screen and (max-width: 700px) {
 	.navbar {   
 		flex-direction: column;
@@ -115,3 +138,27 @@ img {
 }
 
 
+/* Image Container Styling */
+.container {
+	position: relative;
+}
+
+
+.container .centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+/* Column Styling */
+.column-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.column {
+	flex: 50%;
+	padding: 20px;
+}
