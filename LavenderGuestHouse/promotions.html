@@ -39,36 +39,75 @@
 		<br>
 		<br>
 		
-		<!-- Reports -->
-		<section id="Reports">
-			<h1>Reports</h1>
-			<button>Statistics Dashboard →</button>
-			
-			<br>
-			<br>
-			<br>
-			
-			<button>Generate Weekly Reports →</button>
-			
-			<br>
-			<br>
-			<br>
-			
-			<button>Generate Monthly Reports →</button>
-			
-			<br>
-			<br>
-		</section>
-		
-		<br>
-		<br>
-		<br>
-		
 		<!-- Promotions -->
 		<section id="Promotions">
 			<h1>Promotions</h1>
-			<button>Manage Promotions →</button>
 			
+			<div style="background-color: #383440; min-height: 500px; padding: 20px;">
+				<h3>Active Promotions</h3>
+				
+				<br>
+				<br>
+				<br>
+				
+				<i>Lists all active promotions in a table form, with an edit and remove button for each promotion.</i>
+				
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				
+				<a href="promotions.html#Add_Promotion"><button>Add Promotion</button></a>
+			</div>
+			
+			<br>
+			<br>
+			<br>
+			
+			<div style="background-color: #383440; min-height: 500px; padding: 20px;">
+				<h3 id="Add_Promotion">Add Promotion</h3>
+				
+				<div style="width: 50%; margin: auto; padding: 30px;">
+					<form>
+						<label>Duration of Promotion:</label><br>
+						<div class="column-container">
+							<div class="column" style="flex: 45%; padding: 0;">
+								<input type="datetime-local" style="margin-left: 0;" id="startdate" name="startdate" placeholder="Start Date">
+							</div>
+							<pre style="margin: 0; padding: 10px 10px 0 10px;"> to </pre>
+							<div class="column" style="flex: 45%; padding: 0;">
+								<input type="datetime-local" style="margin-right: 0;" id="enddate" name="enddate" placeholder="End Date">
+							</div>
+						</div>
+						
+						<br>
+						
+						<form>
+							<label>Room Type:</label><br>
+							<select id="roomType" name="roomType">
+								<option value="deluxeking">Deluxe-King</option>
+								<option value="deluxetwin">Deluxe-Twin</option>
+								<option value="superiorking">Superior-King</option>
+								<option value="superiortwin">Superior-Twin</option>
+								<option value="familysuite">Family Suite</option>
+							</select><br>
+							<br>
+							<label>Discount percentage:</label><br>
+							<input type="text" id="discount" name="discount" placeholder="Discount Percentage, e.g. 20%"><br>
+							<br>
+						</form>
+					</form>
+				</div>
+				
+				<button>Add</button>
+			</div>
+			
+			<br>
 			<br>
 			<br>
 		</section>
@@ -76,6 +115,7 @@
 		<br>
 		<br>
 		<br>
+		
 	</div>
 	
 	<!-- Footer -->
