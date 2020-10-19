@@ -4,7 +4,7 @@
 <!-- Head -->
 <head>
 	<!-- Title -->
-	<title>Staff Login | Lavender Guest House</title>
+	<title>Home | Lavender Guest House</title>
 	
 	<!-- Local css -->
 	<link href="style.css" rel="stylesheet">
@@ -26,9 +26,9 @@
 			<div class="navbar navbar-item">
 				<a href="index.html">Home</a>
 				<a href="rooms.html">Rooms</a>
-				<a href="booking.html">Booking</a>
+				<a href="booking.html#">Booking</a>
 				<a href="contactus.html">Contact Us</a>
-				<a href="login.html#">Login</a>
+				<a href="login.html">Login</a>
 			</div>
 		</div>
 	</header>
@@ -39,19 +39,21 @@
 		<br>
 		<br>
 		
-		<!-- Login -->
-		<section id="Login">
-			<h1>Staff Login</h1>
+		<!-- Payment -->
+		<section id="Payment">
+			<h1>Payment</h1>
+			<p>One final step</p>
 			<div style="width: 50%; margin: auto; padding: 60px;">
 				<form>
-					<label>Username:</label><br>
-					<input type="text" id="username" name="username" placeholder="Username"><br>
+					<label>Payment Type:</label><br>
+					<select id="paymenttype" name="paymenttype">
+						<option value="visa">Online banking</option>
+						<option value="visa">Touch n' Go E-Wallet</option>
+					</select><br>
 					<br>
-					<label>Password:</label><br>
-					<input type="password" id="password" name="password" placeholder="Password"><br>
 				</form>
 			</div>
-			<a href="staff.html"><button>Login</button></a>
+			<button>Continue</button>
 		</section>
 		
 		<br>
