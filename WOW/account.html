@@ -129,6 +129,31 @@
 						</tr>
 					</table>
 				</div>
+				<div class="dashboard-item" style="width: 100%">
+					<table>
+						<tr>
+							<th>Saved Card</th>
+						</tr>
+						<tr>
+							<td>
+								<div style="display: flex; align-content: center; justify-content: flex-start; flex-direction: row; flex-wrap: nowrap;">
+									<div style="min-width: 50%; padding: 0 20px;">
+										<div style="display: inline-block; width: 300px;">
+											Last 4 Digits of Card:
+										</div>
+										<code>
+											{Card Last 4 digits}
+										</code>
+									</div>
+								</div>
+								<br>
+								<div class="container" style="align-content: center; justify-content: center; flex-direction: column; flex-wrap: wrap;">
+									<button onclick="modalCard_open()" style="width: 200px;">Edit Saved Card</button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -199,6 +224,34 @@
 		</div>
 	</div>
 
+	<div id="modalCard" class="modal">
+		<div class="modal-content">
+			<div onclick="modalCard_close()" class="fa fa-times close-button"></div>
+			<h6>Edit Card Details</h6>
+			<div class="modal-content-inner">
+				<br>
+				<br>
+				<div style="width: 100%; display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: column;">
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Card Number:</p>
+						<input>
+					</div>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Expiration Date:</p>
+						<input>
+					</div>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">CVC:</p>
+						<input>
+					</div>
+					<br>
+					<br>
+					<button onclick="modalCard_close()" style="width: 150px;">Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Javascript -->
 	<script>
 		// Accordion dropdown
@@ -239,6 +292,14 @@
 			document.getElementById("modalBank").style.display = "none";
 		}
 
+		function modalCard_open() {
+			document.getElementById("modalCard").style.display = "block";
+		}
+
+		function modalCard_close() {
+			document.getElementById("modalCard").style.display = "none";
+		}
+
 		window.onclick = function(event) {
 			if (event.target == document.getElementById("modalProfile")) {
 				modalProfile_close();
@@ -246,6 +307,10 @@
 
 			if (event.target == document.getElementById("modalBank")) {
 				modalBank_close();
+			}
+
+			if (event.target == document.getElementById("modalCard")) {
+				modalCard_close();
 			}
 		}
 		</script>
