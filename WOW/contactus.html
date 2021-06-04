@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page title-->
+	<title>Contact Us | Waiter on Wheels</title>
+	
+	<!--Page metadata-->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="display/normalize.css">
+	<link rel="stylesheet" type="text/css" href="display/style.css">
+</head>
+<body>
+	<nav id="sidebar">
+		<div class="sidebar">
+			<div class="logo"><a href="index.html">Waiters on Wheels</a></div>
+			<ul>
+				<a href="index.html"><li class="grey-button">Home</li></a>
+				<a href="about.html"><li class="grey-button">About</li></a>
+				<a href="wowpay.html"><li class="grey-button">WOWPay</li></a>
+				<a href="contactus.html"><li class="grey-button">Contact Us</li></a>
+				<a href="signin.html"><li class="grey-button">Sign In</li></a>
+				<a href="signup.html"><li class="grey-button">Sign Up</li></a>
+			</ul>
+		</div>
+	</nav>
+	<header class="large-view-hidden">
+		<div class="logo" style="color: white;"><a href="index.html">Waiters on Wheels</a></div>
+		<div class="header-icon">
+			<button class="grey-button" onclick="sidebar_open()">
+				<a>
+					<div class="fa fa-bars"></div>
+				</a>
+			</button>
+		</div>
+	</header>
+	<div class="navigation-overlay" onclick="sidebar_close()" id="overlay"></div>
+
+	<div class="content">
+		<div class="content-inner">
+			<h1>Contact Us</h1>
+			<div class="container row-flex container-wrap">
+				<div>
+					<br>
+					<div class="container column-flex" style="width: 400px;">
+						<div class="container row-flex">
+							<p>Name:</p>
+							<input>
+						</div>
+						<div class="container row-flex">
+							<p>Email:</p>
+							<input>
+						</div>
+						<div class="container row-flex">
+							<p>Message:</p>
+							<textarea rows="4" cols="21"></textarea>
+						</div>
+					</div>
+					<br>
+					<button>Submit</button>
+				</div>
+				<div>
+					<br>
+					<div class="container column-flex" style="max-width: 700px;">
+						<p>Find us:</p>
+						<br>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.6406277975757!2d101.65458841522789!3d2.9192828553356622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb6fe8d8dee23%3A0x6ac2f1e89f62bc25!2sCybersquare%20Apex%20Tower!5e0!3m2!1sen!2smy!4v1622742714344!5m2!1sen!2smy" width="400" height="400" style="border: 1px solid; max-width: 680px; width:65vmax;" allowfullscreen="" loading="lazy"></iframe>
+						<br>
+						<p>@ B-G-2 Cybersquare, Jalan Teknokrat 6, Cyber 5, 63000, Cyberjaya, Selangor.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Accordion 
+		function myAccFunc() {
+		  var x = document.getElementById("accordion");
+		  if (x.className.indexOf("show") == -1) {
+			x.className += " show";
+		  } else {
+			x.className = x.className.replace(" show", "");
+		  }
+		}
+		
+		// Open and close sidebar
+		function sidebar_open() {
+		  document.getElementById("sidebar").style.display = "block";
+		  document.getElementById("overlay").style.display = "block";
+		}
+		 
+		function sidebar_close() {
+		  document.getElementById("sidebar").style.display = "none";
+		  document.getElementById("overlay").style.display = "none";
+		}
+		</script>
+</body>
+</html>

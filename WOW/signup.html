@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page title-->
+	<title>Sign Up | Waiter on Wheels</title>
+	
+	<!--Page metadata-->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="display/normalize.css">
+	<link rel="stylesheet" type="text/css" href="display/style.css">
+</head>
+<body>
+	<nav id="sidebar">
+		<div class="sidebar">
+			<div class="logo"><a href="index.html">Waiters on Wheels</a></div>
+			<ul>
+				<a href="index.html"><li class="grey-button">Home</li></a>
+				<a href="about.html"><li class="grey-button">About</li></a>
+				<a href="wowpay.html"><li class="grey-button">WOWPay</li></a>
+				<a href="contactus.html"><li class="grey-button">Contact Us</li></a>
+				<a href="signin.html"><li class="grey-button">Sign In</li></a>
+				<a href="signup.html"><li class="grey-button">Sign Up</li></a>
+			</ul>
+		</div>
+	</nav>
+	<header class="large-view-hidden">
+		<div class="logo" style="color: white;"><a href="index.html">Waiters on Wheels</a></div>
+		<div class="header-icon">
+			<button class="grey-button" onclick="sidebar_open()">
+				<a>
+					<div class="fa fa-bars"></div>
+				</a>
+			</button>
+		</div>
+	</header>
+	<div class="navigation-overlay" onclick="sidebar_close()" id="overlay"></div>
+
+	<div class="content">
+		<div class="content-inner">
+			<h1>Register</h1>
+			<br>
+			<div class="container column-flex" style="width: 400px;">
+				<div class="container row-flex">
+					<p>Username:</p>
+					<input>
+				</div>
+				<div class="container row-flex">
+					<p>Email:</p>
+					<input>
+				</div>
+				<div class="container row-flex">
+					<p>Password:</p>
+					<input type="password">
+				</div>
+				<div class="container row-flex">
+					<p>Confirm Password:</p>
+					<input type="password">
+				</div>
+			</div>
+			<br>
+			<button>Register</button>
+		</div>
+	</div>
+
+	<script>
+		// Accordion 
+		function myAccFunc() {
+		  var x = document.getElementById("accordion");
+		  if (x.className.indexOf("show") == -1) {
+			x.className += " show";
+		  } else {
+			x.className = x.className.replace(" show", "");
+		  }
+		}
+		
+		// Open and close sidebar
+		function sidebar_open() {
+		  document.getElementById("sidebar").style.display = "block";
+		  document.getElementById("overlay").style.display = "block";
+		}
+		 
+		function sidebar_close() {
+		  document.getElementById("sidebar").style.display = "none";
+		  document.getElementById("overlay").style.display = "none";
+		}
+		</script>
+</body>
+</html>

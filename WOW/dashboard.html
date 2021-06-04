@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page title-->
+	<title>Dashboard | Waiter on Wheels</title>
+	
+	<!--Page metadata-->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="display/normalize.css">
+	<link rel="stylesheet" type="text/css" href="display/style.css">
+</head>
+<body>
+	<nav id="sidebar">
+		<div class="sidebar">
+			<div class="logo"><a href="index_logged_in.html">Waiters on Wheels</a></div>
+			<ul>
+				<a href="index_logged_in.html"><li class="grey-button">Home</li></a>
+				<a href="about.html"><li class="grey-button">About</li></a>
+				<a href="dashboard.html"><li class="grey-button">Dashboard</li></a>
+				<a onclick="toggleAccordion()" href="javascript:void(0)">
+					<li class="grey-button">
+						Actions<div class="fa fa-caret-down" style="padding-left: 12px;"></div>
+					</li>
+				</a>
+				<div class="hide" id="accordion">
+					<ul style="margin-top: 0;">
+						<a href="mywowpay.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								My WOWPay e-Wallet
+							</li>
+						</a>
+						<a href="deliveries.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								Deliveries
+							</li>
+						</a>
+						<a href="delivery_history.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								Delivery History
+							</li>
+						</a>
+					</ul>
+				</div>
+				<a href="contactus.html"><li class="grey-button">Contact Us</li></a>
+				<a href="account.html"><li class="grey-button">My Account</li></a>
+				<a href="index.html"><li class="grey-button">Logout</li></a>
+			</ul>
+		</div>
+	</nav>
+	<header class="large-view-hidden">
+		<div class="logo" style="color: white;"><a href="index_logged_in.html">Waiters on Wheels</a></div>
+		<div class="header-icon">
+			<button class="grey-button" onclick="sidebar_open()">
+				<a>
+					<div class="fa fa-bars"></div>
+				</a>
+			</button>
+		</div>
+	</header>
+	<div class="navigation-overlay" onclick="sidebar_close()" id="overlay"></div>
+
+	<div class="content">
+		<div class="content-inner">
+			<h1>Dashboard</h1>
+			<div class="container row-flex container-wrap" style="justify-content: space-around;">
+				<div class="dashboard-item">
+					<table>
+						<tr>
+							<th>Current Status</th>
+						</tr>
+						<tr>
+							<td style="display: flex; align-content: center; justify-content: center; flex-direction: column; flex-wrap: wrap;">
+								<p class="p-content" style="text-align: center; color: limegreen;"><code><strong>Online</strong></code></p>
+								<br>
+								<button onclick="modalStatus_open()" style="width: 200px;">Change Status</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="dashboard-item">
+					<table>
+						<tr>
+							<th>Past 5 Deliveries</th>
+						</tr>
+						<tr><td>
+							Test Entry
+						</td></tr>
+						<tr><td>
+							Test Entry
+						</td></tr>
+						<tr><td>
+							Test Entry
+						</td></tr>
+						<tr><td>
+							Test Entry
+						</td></tr>
+						<tr><td>
+							Test Entry
+						</td></tr>
+					</table>
+				</div>
+				<div class="dashboard-item">
+					<table>
+						<tr>
+							<th>WOWPay Balance</th>
+						</tr>
+						<tr>
+							<td style="display: flex; align-content: center; justify-content: center; flex-direction: column; flex-wrap: wrap;">
+								<p class="p-content" style="text-align: center;">RM 9999.99</p>
+								<br>
+								<a href="mywowpay.html">
+									<button style="width: 240px;">Manage WOWPay</button>
+								</a>
+							</td>
+							
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Boxes -->
+	<div id="modalStatus" class="modal">
+		<div class="modal-content">
+			<div onclick="modalStatus_close()" class="fa fa-times close-button"></div>
+			<h6>Change Status</h6>
+			<div class="modal-content-inner">
+				<br>
+				<br>
+				<div style="width: 100%; display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: column;">
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Availability Status:</p>
+						<select>
+							<option>Online</option>
+							<option>Offline</option>
+						</select>
+					</div>
+					<br>
+					<br>
+					<button onclick="modalStatus_close()" style="width: 150px;">Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Javascript -->
+	<script>
+		// Accordion dropdown
+		function toggleAccordion() {
+		  var x = document.getElementById("accordion");
+		  if (x.className.indexOf("show") == -1) {
+			x.className += " show";
+		  } else {
+			x.className = x.className.replace(" show", "");
+		  }
+		}
+		
+		// Open and close sidebar
+		function sidebar_open() {
+		  document.getElementById("sidebar").style.display = "block";
+		  document.getElementById("overlay").style.display = "block";
+		}
+		 
+		function sidebar_close() {
+		  document.getElementById("sidebar").style.display = "none";
+		  document.getElementById("overlay").style.display = "none";
+		}
+
+		// Open and close "Change Status" modal
+		function modalStatus_open() {
+			document.getElementById("modalStatus").style.display = "block";
+		}
+
+		function modalStatus_close() {
+			document.getElementById("modalStatus").style.display = "none";
+		}
+
+		window.onclick = function(event) {
+			if (event.target == document.getElementById("modalStatus")) {
+				modalStatus_close();
+			}
+		}
+		</script>
+</body>
+</html>

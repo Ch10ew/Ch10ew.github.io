@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page title-->
+	<title>About | Waiter on Wheels</title>
+	
+	<!--Page metadata-->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="display/normalize.css">
+	<link rel="stylesheet" type="text/css" href="display/style.css">
+</head>
+<body>
+	<nav id="sidebar">
+		<div class="sidebar">
+			<div class="logo"><a href="index.html">Waiters on Wheels</a></div>
+			<ul>
+				<a href="index.html"><li class="grey-button">Home</li></a>
+				<a href="about.html"><li class="grey-button">About</li></a>
+				<a href="wowpay.html"><li class="grey-button">WOWPay</li></a>
+				<a href="contactus.html"><li class="grey-button">Contact Us</li></a>
+				<a href="signin.html"><li class="grey-button">Sign In</li></a>
+				<a href="signup.html"><li class="grey-button">Sign Up</li></a>
+			</ul>
+		</div>
+	</nav>
+	<header class="large-view-hidden">
+		<div class="logo" style="color: white;"><a href="index.html">Waiters on Wheels</a></div>
+		<div class="header-icon">
+			<button class="grey-button" onclick="sidebar_open()">
+				<a>
+					<div class="fa fa-bars"></div>
+				</a>
+			</button>
+		</div>
+	</header>
+	<div class="navigation-overlay" onclick="sidebar_close()" id="overlay"></div>
+
+	<div class="content">
+		<div class="content-inner">
+			<h1>Waiters on Wheels</h1>
+			<p><strong>Waiters on Wheels</strong> is a third-party delivery service that offers fast deliveries, with support for purchasing from multiple restaurants at once.</p>
+			<br>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra est purus, ut aliquet orci venenatis eget. Sed risus velit, tincidunt vel enim sed, dignissim rhoncus sem. Nam ornare dolor in nisi ullamcorper, eget tincidunt nisl consectetur. Donec varius placerat libero. Etiam imperdiet molestie lorem at interdum. Vestibulum et ultricies magna, ut pulvinar tortor. Ut sed massa nec lacus egestas dignissim. Suspendisse aliquam sem ut arcu rhoncus placerat. Cras lacinia suscipit cursus. Phasellus consequat elit libero, vel venenatis nulla efficitur in.</p>
+			<br>
+			<p>Vivamus quis ex non lorem maximus tristique. Integer dignissim neque eu nisl pretium, quis cursus elit volutpat. Etiam a sem non turpis cursus mattis nec nec dolor. Nunc et nisl aliquet, molestie tellus vitae, volutpat tellus. Nunc sit amet metus ac massa scelerisque congue quis eu sapien. Nullam ultricies vitae lectus a sagittis. Mauris vel ante ac enim scelerisque euismod sed sit amet justo. Maecenas suscipit rutrum metus, in consequat mauris feugiat at.</p>
+			<br>
+			<p>Duis ornare justo enim, in aliquet lorem tincidunt ut. Fusce sem sapien, laoreet eget tempor eget, efficitur id metus. Nunc mollis orci nulla, ut volutpat purus cursus id. Praesent id blandit leo. Etiam pretium pretium lacus sit amet commodo. Suspendisse quis scelerisque mauris. Maecenas in finibus est. Donec et massa risus. Morbi at erat vitae lorem rutrum aliquam quis nec lectus. Donec vehicula enim eros, sit amet ultricies quam mattis in.</p>
+			<br>
+			<p>Sed finibus fermentum urna, a ultrices metus viverra in. Mauris nec nunc nibh. Nam quis consectetur leo. Ut at sodales turpis, placerat consequat arcu. Fusce ipsum lorem, ultrices vitae quam quis, posuere fermentum elit. Cras quis lacus sed ligula tempor tristique. Aenean odio purus, pulvinar id lectus at, porta mollis odio. Fusce venenatis urna mollis, consequat magna sed, porta risus. Integer ac fermentum turpis. Donec interdum finibus orci sed consectetur. Vivamus nec congue arcu, at tristique nisl. Sed non purus condimentum, pellentesque urna nec, dignissim ante.</p>
+			<br>
+			<p>Etiam eu aliquet ante, et semper eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean pretium nec arcu eget dictum. Sed in ornare dolor. Etiam dictum rutrum magna, ac imperdiet augue scelerisque nec. Sed interdum mi at arcu dictum, sed faucibus lorem rhoncus. In hac habitasse platea dictumst. Vestibulum nisl leo, vulputate nec posuere eget, volutpat quis odio. Curabitur tincidunt neque eget dictum gravida. Duis vel augue pulvinar, volutpat dolor sed, viverra urna. Donec pretium aliquam ipsum ut ultrices.</p>
+		</div>
+	</div>
+
+	<script>
+		// Accordion 
+		function myAccFunc() {
+		  var x = document.getElementById("accordion");
+		  if (x.className.indexOf("show") == -1) {
+			x.className += " show";
+		  } else {
+			x.className = x.className.replace(" show", "");
+		  }
+		}
+		
+		// Open and close sidebar
+		function sidebar_open() {
+		  document.getElementById("sidebar").style.display = "block";
+		  document.getElementById("overlay").style.display = "block";
+		}
+		 
+		function sidebar_close() {
+		  document.getElementById("sidebar").style.display = "none";
+		  document.getElementById("overlay").style.display = "none";
+		}
+		</script>
+</body>
+</html>

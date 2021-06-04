@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page title-->
+	<title>My WOWPay | Waiter on Wheels</title>
+	
+	<!--Page metadata-->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="display/normalize.css">
+	<link rel="stylesheet" type="text/css" href="display/style.css">
+</head>
+<body>
+	<nav id="sidebar">
+		<div class="sidebar">
+			<div class="logo"><a href="index_logged_in.html">Waiters on Wheels</a></div>
+			<ul>
+				<a href="index_logged_in.html"><li class="grey-button">Home</li></a>
+				<a href="about.html"><li class="grey-button">About</li></a>
+				<a href="dashboard.html"><li class="grey-button">Dashboard</li></a>
+				<a onclick="toggleAccordion()" href="javascript:void(0)">
+					<li class="grey-button">
+						Actions<div class="fa fa-caret-down" style="padding-left: 12px;"></div>
+					</li>
+				</a>
+				<div class="hide" id="accordion">
+					<ul style="margin-top: 0;">
+						<a href="mywowpay.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								My WOWPay e-Wallet
+							</li>
+						</a>
+						<a href="deliveries.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								Deliveries
+							</li>
+						</a>
+						<a href="delivery_history.html">
+							<li class="grey-button" style="padding-left: 50px;">
+								Delivery History
+							</li>
+						</a>
+					</ul>
+				</div>
+				<a href="contactus.html"><li class="grey-button">Contact Us</li></a>
+				<a href="account.html"><li class="grey-button">My Account</li></a>
+				<a href="index.html"><li class="grey-button">Logout</li></a>
+			</ul>
+		</div>
+	</nav>
+	<header class="large-view-hidden">
+		<div class="logo" style="color: white;"><a href="index_logged_in.html">Waiters on Wheels</a></div>
+		<div class="header-icon">
+			<button class="grey-button" onclick="sidebar_open()">
+				<a>
+					<div class="fa fa-bars"></div>
+				</a>
+			</button>
+		</div>
+	</header>
+	<div class="navigation-overlay" onclick="sidebar_close()" id="overlay"></div>
+
+	<div class="content">
+		<div class="content-inner">
+			<h1>My WOWPay</h1>
+			<div class="container row-flex container-wrap" style="justify-content: space-around;">
+				<div class="dashboard-item" style="width: 100%; height: 100%;">
+					<table>
+						<tr>
+							<th>WOWPay Balance</th>
+						</tr>
+						<tr>
+							<td class="container column-flex">
+								<p class="p-content" style="text-align: center; width: 100%;">RM 9999.99</p>
+								<div class="container container-wrap" style="justify-content: center;">
+									<button onclick="modalTopUp_open()" style="margin: 15px;">Top Up Balance</button>
+									<button onclick="modalCashOut_open()" style="margin: 15px;">Cash Out Balance</button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="dashboard-item" style="width: 100%; height: 100%;">
+					<table>
+						<tr>
+							<th class="container" style="padding: 0;">
+								<p style="padding: 20px; font-size: inherit; font-family: inherit;">
+									Transaction History
+								</p>
+								<button style="border: 0; min-width: 140px; width: 150px;">
+									<div class="container" style="padding: 0;">
+										<p style="padding-right: 30px;">Filter by</p>
+										<div class="fa fa-caret-down"></div>
+									</div>
+								</button>
+							</th>
+						</tr>
+						<tr><td>
+							Test Entry 1
+						</td></tr>
+						<tr><td>
+							Test Entry 2
+						</td></tr>
+						<tr><td>
+							Test Entry 3
+						</td></tr>
+						<tr><td>
+							Test Entry 4
+						</td></tr>
+						<tr><td>
+							Test Entry 5
+						</td></tr>
+						<tr><td>
+							Test Entry 6
+						</td></tr>
+						<tr><td>
+							Test Entry 7
+						</td></tr>
+						<tr><td>
+							Test Entry 8
+						</td></tr>
+						<tr><td>
+							Test Entry 9
+						</td></tr>
+						<tr><td>
+							Test Entry 10
+						</td></tr>
+						<tr><td>
+							Test Entry 11
+						</td></tr>
+						<tr><td>
+							Test Entry 12
+						</td></tr>
+						<tr><td>
+							Test Entry 13
+						</td></tr>
+						<tr><td>
+							Test Entry 14
+						</td></tr>
+						<tr><td>
+							Test Entry 15
+						</td></tr>
+						<tr><td>
+							Test Entry 16
+						</td></tr>
+						<tr><td>
+							Test Entry 17
+						</td></tr>
+						<tr><td>
+							Test Entry 18
+						</td></tr>
+						<tr><td>
+							Test Entry 19
+						</td></tr>
+						<tr><td>
+							Test Entry 20
+						</td></tr>
+						<tr><td>
+							Test Entry 21
+						</td></tr>
+						<tr><td>
+							Test Entry 22
+						</td></tr>
+						<tr><td>
+							Test Entry 23
+						</td></tr>
+						<tr><td>
+							Test Entry 24
+						</td></tr>
+						<tr><td>
+							Test Entry 25
+						</td></tr>
+					</table>
+					<div class="container" style="padding:0; justify-content: center;">
+						<div class="pager" style="margin-top: 40px; height: fit-content;">
+							<a>&laquo;</a>
+							<a>&lsaquo;</a>
+							<a class="active">1</a>
+							<a>2</a>
+							<a>&rsaquo;</a>
+							<a>&raquo;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Boxes -->
+	<div id="modalTopUp" class="modal">
+		<div class="modal-content">
+			<div onclick="modalTopUp_close()" class="fa fa-times close-button"></div>
+			<h6>Top Up Balance</h6>
+			<div class="modal-content-inner">
+				<br>
+				<br>
+				<div style="width: 100%; display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: column;">
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Amount:</p>
+						<input>
+					</div>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Payment Method:</p>
+						<select id="selectTopUp" onchange="divDetails_toggleVisibility(this)">
+							<option value="0">Online Banking</option>
+							<option value="1">Card</option>
+						</select>
+					</div>
+					<br>
+					<div id="bankDetails" style="display: block;">
+						<div class="container row-flex" style="width: 400px;">
+							<p style="margin: auto;">Bank:</p>
+							<select>
+								<option>CIMB Bank</option>
+								<option>Maybank</option>
+								<option>American Express</option>
+							</select>
+						</div>
+					</div>
+					<div id="cardDetails" style="display: none;">
+						<div class="container row-flex" style="width: 400px;">
+							<p style="margin: auto;">Select Saved Card:</p>
+							<select>
+								<option>No Saved Card</option>
+							</select>
+						</div>
+						<p style="width: 100%; text-align: center; color:grey;">OR</p>
+						<div class="container row-flex" style="width: 400px;">
+							<p style="margin: auto;">Card Number:</p>
+							<input>
+						</div>
+						<div class="container row-flex" style="width: 400px;">
+							<p style="margin: auto;">Expiration Date:</p>
+							<input>
+						</div>
+						<div class="container row-flex" style="width: 400px;">
+							<p style="margin: auto;">CVC:</p>
+							<input>
+						</div>
+					</div>
+					<br>
+					<br>
+					<button id="buttonTopUp" onclick="modalTopUp_close()" style="width: 150px;">Proceed</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalCashOut" class="modal">
+		<div class="modal-content">
+			<div onclick="modalCashOut_close()" class="fa fa-times close-button"></div>
+			<h6>Cash Out Balance</h6>
+			<div class="modal-content-inner">
+				<br>
+				<br>
+				<div style="width: 100%; display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: column;">
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Amount:</p>
+						<input>
+					</div>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Bank:</p>
+						<select>
+							<option>CIMB Bank</option>
+							<option>Maybank</option>
+							<option>American Express</option>
+						</select>
+					</div>
+					<br>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Select Saved Bank:</p>
+						<select>
+							<option>No Saved Bank</option>
+						</select>
+					</div>
+					<p style="width: 100%; text-align: center; color:grey;">OR</p>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Bank Acct. No.:</p>
+						<input>
+					</div>
+					<div class="container row-flex" style="width: 400px;">
+						<p style="margin: auto;">Acct. Holder Name:</p>
+						<input>
+					</div>
+					<br>
+					<br>
+					<button onclick="modalCashOut_close()" style="width: 150px;">Cash Out</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Javascript -->
+	<script>
+		// Accordion dropdown
+		function toggleAccordion() {
+		  var x = document.getElementById("accordion");
+		  if (x.className.indexOf("show") == -1) {
+			x.className += " show";
+		  } else {
+			x.className = x.className.replace(" show", "");
+		  }
+		}
+		
+		// Open and close sidebar
+		function sidebar_open() {
+		  document.getElementById("sidebar").style.display = "block";
+		  document.getElementById("overlay").style.display = "block";
+		}
+		 
+		function sidebar_close() {
+		  document.getElementById("sidebar").style.display = "none";
+		  document.getElementById("overlay").style.display = "none";
+		}
+
+		// Open and close "Change Status" modal
+		function modalTopUp_open() {
+			document.getElementById("modalTopUp").style.display = "block";
+		}
+
+		function modalTopUp_close() {
+			document.getElementById("modalTopUp").style.display = "none";
+		}
+
+		function modalCashOut_open() {
+			document.getElementById("modalCashOut").style.display = "block";
+		}
+
+		function modalCashOut_close() {
+			document.getElementById("modalCashOut").style.display = "none";
+		}
+
+		window.onclick = function(event) {
+			if (event.target == document.getElementById("modalTopUp")) {
+				modalTopUp_close();
+			}
+			if (event.target == document.getElementById("modalCashOut")) {
+				modalCashOut_close();
+			}
+		}
+
+		// Card Details div
+		function divDetails_toggleVisibility(element) {
+			document.getElementById("bankDetails").style.display = element.value == 0 ? "block" : "none";
+			document.getElementById("cardDetails").style.display = element.value == 1 ? "block" : "none";
+
+			if (element.value == 0) {
+				document.getElementById("buttonTopUp").textContent = "Proceed";
+			}
+			if (element.value == 1) {
+				document.getElementById("buttonTopUp").textContent = "Top Up";
+			}
+		}
+		</script>
+</body>
+</html>
