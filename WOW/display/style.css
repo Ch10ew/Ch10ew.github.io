@@ -223,6 +223,7 @@ th {
 	position: fixed;
 	z-index: 5;
 	padding-top: 150px;
+	padding-bottom: 150px;
 	left: 0;
 	top: 0;
 	width: 100%;
