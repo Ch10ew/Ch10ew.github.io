@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Booru Tags Character Builder</title>
+</head>
+
+<body style="padding:20px">
+    <button onclick="topFunction()" id="goToTopBtn" title="Go to top">Top</button>
+
+    <h1>(Booru Tags Based) Character Builder v0.0.1</h1>
+    Selected: <span id="selected-tags">none</span><br>
+    Negavite: <span id="negative-tags">none</span><br>
+    <br>
+    <input type="checkbox" id="remove_underscores" name="remove_underscores" value="remove_underscores"
+        onchange="removeUnderscores(this.checked)">
+    <label for="remove_underscores">Remove Underscores</label><br>
+    <input type="checkbox" id="show_nsfw" name="show_nsfw" value="show_nsfw" onchange="showNSFW(this.checked)">
+    <label for="show_nsfw">Show NSFW</label><br>
+    <br>
+    <button onclick="randomize()">Randomize</button><br>
+    <br>
+    <input type="range" id="tag_amount_weightage" name="tag_amount_weightage" min="1" max="100" value="50"
+        oninput="updateSliderValue(this.value)"> <span id="slider_value">50</span>%<br>
+    <label for="tag_amount_weightage">Tag Amount Weightage</label><br>
+    <br>
+    <button onclick="resetAll()">Reset Tags</button>
+    <hr>
+    <ul>
+        <li><a href="#grouping">Grouping</a></li>
+        <li><a href="#body">Body</a></li>
+        <ul>
+            <li><a href="#head">Head</a></li>
+            <li><a href="#upper_torso">Upper Torso</a></li>
+        </ul>
+    </ul>
+    <hr>
+    <h1 id="grouping">Basic</h1>
+    <div class="content">
+        <div class="box">
+            <div>
+                <h3>Grouping</h3>
+                <input type="checkbox" id="couple" name="couple" value="couple" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=couple"><label for="couple">couple</label></a><br>
+                <input type="checkbox" id="1girl" name="1girl" value="1girl" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=1girl"><label for="1girl">1girl</label></a><br>
+                <input type="checkbox" id="2girls" name="2girls" value="2girls" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=2girls"><label for="2girls">2girls</label></a><br>
+                <input type="checkbox" id="3girls" name="3girls" value="3girls" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=3girls"><label for="3girls">3girls</label></a><br>
+                <input type="checkbox" id="4girls" name="4girls" value="4girls" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=4girls"><label for="4girls">4girls</label></a><br>
+                <input type="checkbox" id="5girls" name="5girls" value="5girls" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=5girls"><label for="5girls">5girls</label></a><br>
+                <input type="checkbox" id="6+girls" name="6+girls" value="6+girls" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=6%2Bgirls"><label for="6+girls">6+girls</label></a><br>
+                <input type="checkbox" id="multiple_girls" name="multiple_girls" value="multiple_girls"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multiple_girls"><label for="multiple_girls">multiple
+                        girls</label></a><br>
+                <input type="checkbox" id="1boy" name="1boy" value="1boy" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=1boy"><label for="1boy">1boy</label></a><br>
+                <input type="checkbox" id="2boys" name="2boys" value="2boys" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=2boys"><label for="2boys">2boys</label></a><br>
+                <input type="checkbox" id="3boys" name="3boys" value="3boys" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=3boys"><label for="3boys">3boys</label></a><br>
+                <input type="checkbox" id="4boys" name="4boys" value="4boys" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=4boys"><label for="4boys">4boys</label></a><br>
+                <input type="checkbox" id="5boys" name="5boys" value="5boys" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=5boys"><label for="5boys">5boys</label></a><br>
+                <input type="checkbox" id="6+boys" name="6+boys" value="6+boys" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=6%2Bboys"><label for="6+boys">6+boys</label></a><br>
+                <input type="checkbox" id="multiple_boys" name="multiple_boys" value="multiple_boys"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multiple_boys"><label for="multiple_boys">multiple
+                        boys</label></a><br>
+                <input type="checkbox" id="harem" name="harem" value="harem" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=harem"><label for="harem">harem</label></a><br>
+                <input type="checkbox" id="everyone" name="everyone" value="everyone" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=everyone"><label for="everyone">everyone</label></a><br>
+                <input type="checkbox" id="androgynous" name="androgynous" value="androgynous"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=androgynous"><label
+                        for="androgynous">androgynous</label></a><br>
+                <input type="checkbox" id="1other" name="1other" value="1other" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=1other"><label for="1other">1other</label></a><br>
+                <input type="checkbox" id="2others" name="2others" value="2others" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=2others"><label for="2others">2others</label></a><br>
+                <input type="checkbox" id="3others" name="3others" value="3others" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=3others"><label for="3others">3others</label></a><br>
+                <input type="checkbox" id="4others" name="4others" value="4others" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=4others"><label for="4others">4others</label></a><br>
+                <input type="checkbox" id="5others" name="5others" value="5others" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=5others"><label for="5others">5others</label></a><br>
+                <input type="checkbox" id="6+others" name="6+others" value="6+others" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=6%2Bothers"><label
+                        for="6+others">6+others</label></a><br>
+                <input type="checkbox" id="multiple_others" name="multiple_others" value="multiple_others"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multiple_others"><label for="multiple_others">multiple
+                        others</label></a><br>
+                <input type="checkbox" id="animal" name="animal" value="animal" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=animal"><label for="animal">animal</label></a><br>
+                <input type="checkbox" id="no_humans" name="no_humans" value="no_humans" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=no_humans"><label for="no_humans">no
+                        humans</label></a><br>
+            </div>
+            <div>
+                <h3>Skin Color</h3>
+                <input type="checkbox" id="dark_skin" name="dark_skin" value="dark_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dark_skin"><label for="dark_skin">dark
+                        skin</label></a><br>
+                <input type="checkbox" id="pale_skin" name="pale_skin" value="pale_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pale_skin"><label for="pale_skin">pale
+                        skin</label></a><br>
+                <input type="checkbox" id="tan" name="tan" value="tan" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tan"><label for="tan">tan</label></a><br>
+                <input type="checkbox" id="tanlines" name="tanlines" value="tanlines" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tanlines"><label for="tanlines">tanlines</label></a><br>
+                <input type="checkbox" id="sun_tattoo" name="sun_tattoo" value="sun_tattoo" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sun_tattoo"><label for="sun_tattoo">sun
+                        tattoo</label></a><br>
+                <input type="checkbox" id="black_skin" name="black_skin" value="black_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black_skin"><label for="black_skin">black
+                        skin</label></a><br>
+                <input type="checkbox" id="blue_skin" name="blue_skin" value="blue_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_skin"><label for="blue_skin">blue
+                        skin</label></a><br>
+                <input type="checkbox" id="green_skin" name="green_skin" value="green_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_skin"><label for="green_skin">green
+                        skin</label></a><br>
+                <input type="checkbox" id="grey_skin" name="grey_skin" value="grey_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey_skin"><label for="grey_skin">grey
+                        skin</label></a><br>
+                <input type="checkbox" id="orange_skin" name="orange_skin" value="orange_skin"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_skin"><label for="orange_skin">orange
+                        skin</label></a><br>
+                <input type="checkbox" id="pink_skin" name="pink_skin" value="pink_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink_skin"><label for="pink_skin">pink
+                        skin</label></a><br>
+                <input type="checkbox" id="purple_skin" name="purple_skin" value="purple_skin"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_skin"><label for="purple_skin">purple
+                        skin</label></a><br>
+                <input type="checkbox" id="red_skin" name="red_skin" value="red_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_skin"><label for="red_skin">red skin</label></a><br>
+                <input type="checkbox" id="white_skin" name="white_skin" value="white_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=white_skin"><label for="white_skin">white
+                        skin</label></a><br>
+                <input type="checkbox" id="yellow_skin" name="yellow_skin" value="yellow_skin"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_skin"><label for="yellow_skin">yellow
+                        skin</label></a><br>
+                <input type="checkbox" id="shiny_skin" name="shiny_skin" value="shiny_skin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shiny_skin"><label for="shiny_skin">shiny
+                        skin</label></a><br>
+            </div>
+        </div>
+    </div>
+    <h1 id="body">Body</h1>
+    <div class="content">
+        <h2 id="head">Head</h2>
+        <div class="box">
+            <div>
+                <h3>Ear Types</h3>
+                <input type="checkbox" id="bat_ears" name="bat_ears" value="bat_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bat_ears"><label for="bat_ears">bat ears</label></a><br>
+                <input type="checkbox" id="bear_ears" name="bear_ears" value="bear_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bear_ears"><label for="bear_ears">bear
+                        ears</label></a><br>
+                <input type="checkbox" id="rabbit_ears" name="rabbit_ears" value="rabbit_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=rabbit_ears"><label for="rabbit_ears">rabbit
+                        ears</label></a><br>
+                <input type="checkbox" id="cat_ears" name="cat_ears" value="cat_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cat_ears"><label for="cat_ears">cat ears</label></a><br>
+                <input type="checkbox" id="cow_ears" name="cow_ears" value="cow_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cow_ears"><label for="cow_ears">cow ears</label></a><br>
+                <input type="checkbox" id="deer_ears" name="deer_ears" value="deer_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=deer_ears"><label for="deer_ears">deer
+                        ears</label></a><br>
+                <input type="checkbox" id="dog_ears" name="dog_ears" value="dog_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dog_ears"><label for="dog_ears">dog ears</label></a><br>
+                <input type="checkbox" id="ferret_ears" name="ferret_ears" value="ferret_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ferret_ears"><label for="ferret_ears">ferret
+                        ears</label></a><br>
+                <input type="checkbox" id="fox_ears" name="fox_ears" value="fox_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=fox_ears"><label for="fox_ears">fox ears</label></a><br>
+                <input type="checkbox" id="goat_ears" name="goat_ears" value="goat_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=goat_ears"><label for="goat_ears">goat
+                        ears</label></a><br>
+                <input type="checkbox" id="horse_ears" name="horse_ears" value="horse_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=horse_ears"><label for="horse_ears">horse
+                        ears</label></a><br>
+                <input type="checkbox" id="lion_ears" name="lion_ears" value="lion_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lion_ears"><label for="lion_ears">lion
+                        ears</label></a><br>
+                <input type="checkbox" id="monkey_ears" name="monkey_ears" value="monkey_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=monkey_ears"><label for="monkey_ears">monkey
+                        ears</label></a><br>
+                <input type="checkbox" id="mouse_ears" name="mouse_ears" value="mouse_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mouse_ears"><label for="mouse_ears">mouse
+                        ears</label></a><br>
+                <input type="checkbox" id="panda_ears" name="panda_ears" value="panda_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=panda_ears"><label for="panda_ears">panda
+                        ears</label></a><br>
+                <input type="checkbox" id="pikachu_ears" name="pikachu_ears" value="pikachu_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pikachu_ears"><label for="pikachu_ears">pikachu
+                        ears</label></a><br>
+                <input type="checkbox" id="pig_ears" name="pig_ears" value="pig_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pig_ears"><label for="pig_ears">pig ears</label></a><br>
+                <input type="checkbox" id="raccoon_ears" name="raccoon_ears" value="raccoon_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=raccoon_ears"><label for="raccoon_ears">raccoon
+                        ears</label></a><br>
+                <input type="checkbox" id="sheep_ears" name="sheep_ears" value="sheep_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sheep_ears"><label for="sheep_ears">sheep
+                        ears</label></a><br>
+                <input type="checkbox" id="squirrel_ears" name="squirrel_ears" value="squirrel_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=squirrel_ears"><label for="squirrel_ears">squirrel
+                        ears</label></a><br>
+                <input type="checkbox" id="tiger_ears" name="tiger_ears" value="tiger_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tiger_ears"><label for="tiger_ears">tiger
+                        ears</label></a><br>
+                <input type="checkbox" id="wolf_ears" name="wolf_ears" value="wolf_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=wolf_ears"><label for="wolf_ears">wolf
+                        ears</label></a><br>
+                <input type="checkbox" id="hair_ears" name="hair_ears" value="hair_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_ears"><label for="hair_ears">hair
+                        ears</label></a><br>
+                <input type="checkbox" id="pointy_ears" name="pointy_ears" value="pointy_ears"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pointy_ears"><label for="pointy_ears">pointy
+                        ears</label></a><br>
+                <input type="checkbox" id="robot_ears" name="robot_ears" value="robot_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=robot_ears"><label for="robot_ears">robot
+                        ears</label></a><br>
+                <input type="checkbox" id="extra_ears" name="extra_ears" value="extra_ears" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=extra_ears"><label for="extra_ears">extra
+                        ears</label></a><br>
+            </div>
+            <div>
+                <h3>Ear Misc</h3>
+                <input type="checkbox" id="ear_piercing" name="ear_piercing" value="ear_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ear_piercing"><label for="ear_piercing">ear
+                        piercing</label></a><br>
+                <input type="checkbox" id="ear_protection" name="ear_protection" value="ear_protection"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ear_protection"><label for="ear_protection">ear
+                        protection</label></a><br>
+                <input type="checkbox" id="earrings" name="earrings" value="earrings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=earrings"><label for="earrings">earrings</label></a><br>
+                <input type="checkbox" id="single_earring" name="single_earring" value="single_earring"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_earring"><label for="single_earring">single
+                        earring</label></a><br>
+                <input type="checkbox" id="hoop_earrings" name="hoop_earrings" value="hoop_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hoop_earrings"><label for="hoop_earrings">hoop
+                        earrings</label></a><br>
+                <input type="checkbox" id="stud_earrings" name="stud_earrings" value="stud_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=stud_earrings"><label for="stud_earrings">stud
+                        earrings</label></a><br>
+                <input type="checkbox" id="earclip" name="earclip" value="earclip" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=earclip"><label for="earclip">earclip</label></a><br>
+                <input type="checkbox" id="headphones" name="headphones" value="headphones" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=headphones"><label
+                        for="headphones">headphones</label></a><br>
+                <input type="checkbox" id="animal_ear_headphones" name="animal_ear_headphones"
+                    value="animal_ear_headphones" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=animal_ear_headphones"><label
+                        for="animal_ear_headphones">animal ear headphones</label></a><br>
+                <input type="checkbox" id="plug_(piercing)" name="plug_(piercing)" value="plug_(piercing)"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=plug_%28piercing%29"><label for="plug_(piercing)">plug
+                        (piercing)</label></a><br>
+                <input type="checkbox" id="mole_on_ear" name="mole_on_ear" value="mole_on_ear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_on_ear"><label for="mole_on_ear">mole on
+                        ear</label></a><br>
+            </div>
+            <div>
+                <h3>Earring Designs</h3>
+                <input type="checkbox" id="bell_earrings" name="bell_earrings" value="bell_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bell_earrings"><label for="bell_earrings">bell
+                        earrings</label></a><br>
+                <input type="checkbox" id="cherry_earrings" name="cherry_earrings" value="cherry_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cherry_earrings"><label for="cherry_earrings">cherry
+                        earrings</label></a><br>
+                <input type="checkbox" id="crescent_earrings" name="crescent_earrings" value="crescent_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crescent_earrings"><label
+                        for="crescent_earrings">crescent earrings</label></a><br>
+                <input type="checkbox" id="cross_earrings" name="cross_earrings" value="cross_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cross_earrings"><label for="cross_earrings">cross
+                        earrings</label></a><br>
+                <input type="checkbox" id="crystal_earrings" name="crystal_earrings" value="crystal_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crystal_earrings"><label for="crystal_earrings">crystal
+                        earrings</label></a><br>
+                <input type="checkbox" id="flower_earrings" name="flower_earrings" value="flower_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flower_earrings"><label for="flower_earrings">flower
+                        earrings</label></a><br>
+                <input type="checkbox" id="food-themed_earrings" name="food-themed_earrings"
+                    value="food-themed_earrings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=food-themed_earrings"><label
+                        for="food-themed_earrings">food-themed earrings</label></a><br>
+                <input type="checkbox" id="heart_earrings" name="heart_earrings" value="heart_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart_earrings"><label for="heart_earrings">heart
+                        earrings</label></a><br>
+                <input type="checkbox" id="jack-o'-lantern_earrings" name="jack-o'-lantern_earrings"
+                    value="jack-o'-lantern_earrings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=jack-o%27-lantern_earrings"><label
+                        for="jack-o'-lantern_earrings">jack-o'-lantern earrings</label></a><br>
+                <input type="checkbox" id="magatama_earrings" name="magatama_earrings" value="magatama_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=magatama_earrings"><label
+                        for="magatama_earrings">magatama earrings</label></a><br>
+                <input type="checkbox" id="orange-shaped_earrings" name="orange-shaped_earrings"
+                    value="orange-shaped_earrings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange-shaped_earrings"><label
+                        for="orange-shaped_earrings">orange-shaped earrings</label></a><br>
+                <input type="checkbox" id="pill_earrings" name="pill_earrings" value="pill_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pill_earrings"><label for="pill_earrings">pill
+                        earrings</label></a><br>
+                <input type="checkbox" id="pineapple_earrings" name="pineapple_earrings" value="pineapple_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pineapple_earrings"><label
+                        for="pineapple_earrings">pineapple earrings</label></a><br>
+                <input type="checkbox" id="planet_earrings" name="planet_earrings" value="planet_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=planet_earrings"><label for="planet_earrings">planet
+                        earrings</label></a><br>
+                <input type="checkbox" id="pom_pom_earrings" name="pom_pom_earrings" value="pom_pom_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pom_pom_earrings"><label for="pom_pom_earrings">pom pom
+                        earrings</label></a><br>
+                <input type="checkbox" id="potara_earrings" name="potara_earrings" value="potara_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=potara_earrings"><label for="potara_earrings">potara
+                        earrings</label></a><br>
+                <input type="checkbox" id="shell_earrings" name="shell_earrings" value="shell_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shell_earrings"><label for="shell_earrings">shell
+                        earrings</label></a><br>
+                <input type="checkbox" id="skull_earrings" name="skull_earrings" value="skull_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=skull_earrings"><label for="skull_earrings">skull
+                        earrings</label></a><br>
+                <input type="checkbox" id="snowflake_earrings" name="snowflake_earrings" value="snowflake_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=snowflake_earrings"><label
+                        for="snowflake_earrings">snowflake earrings</label></a><br>
+                <input type="checkbox" id="spade_earrings" name="spade_earrings" value="spade_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=spade_earrings"><label for="spade_earrings">spade
+                        earrings</label></a><br>
+                <input type="checkbox" id="star_earrings" name="star_earrings" value="star_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=star_earrings"><label for="star_earrings">star
+                        earrings</label></a><br>
+                <input type="checkbox" id="strawberry_earrings" name="strawberry_earrings" value="strawberry_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=strawberry_earrings"><label
+                        for="strawberry_earrings">strawberry earrings</label></a><br>
+                <input type="checkbox" id="tassel_earrings" name="tassel_earrings" value="tassel_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tassel_earrings"><label for="tassel_earrings">tassel
+                        earrings</label></a><br>
+                <input type="checkbox" id="yin_yang_earrings" name="yin_yang_earrings" value="yin_yang_earrings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yin_yang_earrings"><label for="yin_yang_earrings">yin
+                        yang earrings</label></a><br>
+            </div>
+            <div>
+                <h3>Iris Color</h3>
+                <input type="checkbox" id="aqua_eyes" name="aqua_eyes" value="aqua_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua_eyes"><label for="aqua_eyes">aqua
+                        eyes</label></a><br>
+                <input type="checkbox" id="black_eyes" name="black_eyes" value="black_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black_eyes"><label for="black_eyes">black
+                        eyes</label></a><br>
+                <input type="checkbox" id="blue_eyes" name="blue_eyes" value="blue_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_eyes"><label for="blue_eyes">blue
+                        eyes</label></a><br>
+                <input type="checkbox" id="brown_eyes" name="brown_eyes" value="brown_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=brown_eyes"><label for="brown_eyes">brown
+                        eyes</label></a><br>
+                <input type="checkbox" id="green_eyes" name="green_eyes" value="green_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_eyes"><label for="green_eyes">green
+                        eyes</label></a><br>
+                <input type="checkbox" id="grey_eyes" name="grey_eyes" value="grey_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey_eyes"><label for="grey_eyes">grey
+                        eyes</label></a><br>
+                <input type="checkbox" id="orange_eyes" name="orange_eyes" value="orange_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_eyes"><label for="orange_eyes">orange
+                        eyes</label></a><br>
+                <input type="checkbox" id="purple_eyes" name="purple_eyes" value="purple_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_eyes"><label for="purple_eyes">purple
+                        eyes</label></a><br>
+                <input type="checkbox" id="pink_eyes" name="pink_eyes" value="pink_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink_eyes"><label for="pink_eyes">pink
+                        eyes</label></a><br>
+                <input type="checkbox" id="red_eyes" name="red_eyes" value="red_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_eyes"><label for="red_eyes">red eyes</label></a><br>
+                <input type="checkbox" id="white_eyes" name="white_eyes" value="white_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=white_eyes"><label for="white_eyes">white
+                        eyes</label></a><br>
+                <input type="checkbox" id="yellow_eyes" name="yellow_eyes" value="yellow_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_eyes"><label for="yellow_eyes">yellow
+                        eyes</label></a><br>
+                <input type="checkbox" id="amber_eyes" name="amber_eyes" value="amber_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=amber_eyes"><label for="amber_eyes">amber
+                        eyes</label></a><br>
+                <input type="checkbox" id="heterochromia" name="heterochromia" value="heterochromia"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heterochromia"><label
+                        for="heterochromia">heterochromia</label></a><br>
+                <input type="checkbox" id="multicolored_eyes" name="multicolored_eyes" value="multicolored_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multicolored_eyes"><label
+                        for="multicolored_eyes">multicolored eyes</label></a><br>
+            </div>
+            <div>
+                <h3>Form of Iris</h3>
+                <input type="checkbox" id="@_@" name="@_@" value="@_@" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=%40_%40"><label for="@_@">@ @</label></a><br>
+                <input type="checkbox" id="asymmetrical_irises" name="asymmetrical_irises" value="asymmetrical_irises"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=asymmetrical_irises"><label
+                        for="asymmetrical_irises">asymmetrical irises</label></a><br>
+                <input type="checkbox" id="dashed_eyes" name="dashed_eyes" value="dashed_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dashed_eyes"><label for="dashed_eyes">dashed
+                        eyes</label></a><br>
+                <input type="checkbox" id="Pac-man_eyes" name="Pac-man_eyes" value="Pac-man_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=Pac-man_eyes"><label for="Pac-man_eyes">Pac-man
+                        eyes</label></a><br>
+                <input type="checkbox" id="ringed_eyes" name="ringed_eyes" value="ringed_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ringed_eyes"><label for="ringed_eyes">ringed
+                        eyes</label></a><br>
+            </div>
+            <div>
+                <h3>Pupil Color</h3>
+                <input type="checkbox" id="aqua_pupils" name="aqua_pupils" value="aqua_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua_pupils"><label for="aqua_pupils">aqua
+                        pupils</label></a><br>
+                <input type="checkbox" id="blue_pupils" name="blue_pupils" value="blue_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_pupils"><label for="blue_pupils">blue
+                        pupils</label></a><br>
+                <input type="checkbox" id="brown_pupils" name="brown_pupils" value="brown_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=brown_pupils"><label for="brown_pupils">brown
+                        pupils</label></a><br>
+                <input type="checkbox" id="green_pupils" name="green_pupils" value="green_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_pupils"><label for="green_pupils">green
+                        pupils</label></a><br>
+                <input type="checkbox" id="grey_pupils" name="grey_pupils" value="grey_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey_pupils"><label for="grey_pupils">grey
+                        pupils</label></a><br>
+                <input type="checkbox" id="orange_pupils" name="orange_pupils" value="orange_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_pupils"><label for="orange_pupils">orange
+                        pupils</label></a><br>
+                <input type="checkbox" id="pink_pupils" name="pink_pupils" value="pink_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink_pupils"><label for="pink_pupils">pink
+                        pupils</label></a><br>
+                <input type="checkbox" id="purple_pupils" name="purple_pupils" value="purple_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_pupils"><label for="purple_pupils">purple
+                        pupils</label></a><br>
+                <input type="checkbox" id="red_pupils" name="red_pupils" value="red_pupils" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_pupils"><label for="red_pupils">red
+                        pupils</label></a><br>
+                <input type="checkbox" id="white_pupils" name="white_pupils" value="white_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=white_pupils"><label for="white_pupils">white
+                        pupils</label></a><br>
+                <input type="checkbox" id="yellow_pupils" name="yellow_pupils" value="yellow_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_pupils"><label for="yellow_pupils">yellow
+                        pupils</label></a><br>
+            </div>
+            <div>
+                <h3>Form of Pupil</h3>
+                <input type="checkbox" id="constricted_pupils" name="constricted_pupils" value="constricted_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=constricted_pupils"><label
+                        for="constricted_pupils">constricted pupils</label></a><br>
+                <input type="checkbox" id="dilated_pupils" name="dilated_pupils" value="dilated_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dilated_pupils"><label for="dilated_pupils">dilated
+                        pupils</label></a><br>
+                <input type="checkbox" id="extra_pupils" name="extra_pupils" value="extra_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=extra_pupils"><label for="extra_pupils">extra
+                        pupils</label></a><br>
+                <input type="checkbox" id="horizontal_pupils" name="horizontal_pupils" value="horizontal_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=horizontal_pupils"><label
+                        for="horizontal_pupils">horizontal pupils</label></a><br>
+                <input type="checkbox" id="no_pupils" name="no_pupils" value="no_pupils" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=no_pupils"><label for="no_pupils">no
+                        pupils</label></a><br>
+                <input type="checkbox" id="slit_pupils" name="slit_pupils" value="slit_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=slit_pupils"><label for="slit_pupils">slit
+                        pupils</label></a><br>
+                <input type="checkbox" id="+_+" name="+_+" value="+_+" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=%2B_%2B"><label for="+_+">+ +</label></a><br>
+                <input type="checkbox" id="diamond-shaped_pupils" name="diamond-shaped_pupils"
+                    value="diamond-shaped_pupils" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=diamond-shaped_pupils"><label
+                        for="diamond-shaped_pupils">diamond-shaped pupils</label></a><br>
+                <input type="checkbox" id="flower-shaped_pupils" name="flower-shaped_pupils"
+                    value="flower-shaped_pupils" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flower-shaped_pupils"><label
+                        for="flower-shaped_pupils">flower-shaped pupils</label></a><br>
+                <input type="checkbox" id="heart-shaped_pupils" name="heart-shaped_pupils" value="heart-shaped_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart-shaped_pupils"><label
+                        for="heart-shaped_pupils">heart-shaped pupils</label></a><br>
+                <input type="checkbox" id="star-shaped_pupils" name="star-shaped_pupils" value="star-shaped_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=star-shaped_pupils"><label
+                        for="star-shaped_pupils">star-shaped pupils</label></a><br>
+                <input type="checkbox" id="mismatched_pupils" name="mismatched_pupils" value="mismatched_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mismatched_pupils"><label
+                        for="mismatched_pupils">mismatched pupils</label></a><br>
+            </div>
+            <div>
+                <h3>Sclera</h3>
+                <input type="checkbox" id="blue_sclera" name="blue_sclera" value="blue_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_sclera"><label for="blue_sclera">blue
+                        sclera</label></a><br>
+                <input type="checkbox" id="black_sclera" name="black_sclera" value="black_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black_sclera"><label for="black_sclera">black
+                        sclera</label></a><br>
+                <input type="checkbox" id="blank_eyes" name="blank_eyes" value="blank_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blank_eyes"><label for="blank_eyes">blank
+                        eyes</label></a><br>
+                <input type="checkbox" id="bloodshot_eyes" name="bloodshot_eyes" value="bloodshot_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bloodshot_eyes"><label for="bloodshot_eyes">bloodshot
+                        eyes</label></a><br>
+                <input type="checkbox" id="green_sclera" name="green_sclera" value="green_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_sclera"><label for="green_sclera">green
+                        sclera</label></a><br>
+                <input type="checkbox" id="mismatched_sclera" name="mismatched_sclera" value="mismatched_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mismatched_sclera"><label
+                        for="mismatched_sclera">mismatched sclera</label></a><br>
+                <input type="checkbox" id="no_sclera" name="no_sclera" value="no_sclera" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=no_sclera"><label for="no_sclera">no
+                        sclera</label></a><br>
+                <input type="checkbox" id="orange_sclera" name="orange_sclera" value="orange_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_sclera"><label for="orange_sclera">orange
+                        sclera</label></a><br>
+                <input type="checkbox" id="red_sclera" name="red_sclera" value="red_sclera" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_sclera"><label for="red_sclera">red
+                        sclera</label></a><br>
+                <input type="checkbox" id="yellow_sclera" name="yellow_sclera" value="yellow_sclera"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_sclera"><label for="yellow_sclera">yellow
+                        sclera</label></a><br>
+            </div>
+            <div>
+                <h3>Around the Eyes</h3>
+                <input type="checkbox" id="bags_under_eyes" name="bags_under_eyes" value="bags_under_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bags_under_eyes"><label for="bags_under_eyes">bags under
+                        eyes</label></a><br>
+                <input type="checkbox" id="aegyo_sal" name="aegyo_sal" value="aegyo_sal" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aegyo_sal"><label for="aegyo_sal">aegyo
+                        sal</label></a><br>
+                <input type="checkbox" id="bruised_eye" name="bruised_eye" value="bruised_eye"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bruised_eye"><label for="bruised_eye">bruised
+                        eye</label></a><br>
+                <input type="checkbox" id="flaming_eyes" name="flaming_eyes" value="flaming_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flaming_eyes"><label for="flaming_eyes">flaming
+                        eyes</label></a><br>
+                <input type="checkbox" id="glowing_eyes" name="glowing_eyes" value="glowing_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=glowing_eyes"><label for="glowing_eyes">glowing
+                        eyes</label></a><br>
+                <input type="checkbox" id="mole_under_eye" name="mole_under_eye" value="mole_under_eye"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_under_eye"><label for="mole_under_eye">mole under
+                        eye</label></a><br>
+            </div>
+            <div>
+                <h3>Eye appearances</h3>
+                <input type="checkbox" id="amphibian_eyes" name="amphibian_eyes" value="amphibian_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=amphibian_eyes"><label for="amphibian_eyes">amphibian
+                        eyes</label></a><br>
+                <input type="checkbox" id="button_eyes" name="button_eyes" value="button_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=button_eyes"><label for="button_eyes">button
+                        eyes</label></a><br>
+                <input type="checkbox" id="cephalopod_eyes" name="cephalopod_eyes" value="cephalopod_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cephalopod_eyes"><label for="cephalopod_eyes">cephalopod
+                        eyes</label></a><br>
+                <input type="checkbox" id="compound_eyes" name="compound_eyes" value="compound_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=compound_eyes"><label for="compound_eyes">compound
+                        eyes</label></a><br>
+                <input type="checkbox" id="horizontal_pupils" name="horizontal_pupils" value="horizontal_pupils"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=horizontal_pupils"><label
+                        for="horizontal_pupils">horizontal pupils</label></a><br>
+            </div>
+            <div>
+                <h3>Number of eyes</h3>
+                <input type="checkbox" id="missing_eye" name="missing_eye" value="missing_eye"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=missing_eye"><label for="missing_eye">missing
+                        eye</label></a><br>
+                <input type="checkbox" id="one-eyed" name="one-eyed" value="one-eyed" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=one-eyed"><label for="one-eyed">one-eyed</label></a><br>
+                <input type="checkbox" id="third_eye" name="third_eye" value="third_eye" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=third_eye"><label for="third_eye">third
+                        eye</label></a><br>
+                <input type="checkbox" id="extra_eyes" name="extra_eyes" value="extra_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=extra_eyes"><label for="extra_eyes">extra
+                        eyes</label></a><br>
+                <input type="checkbox" id="no_eyes" name="no_eyes" value="no_eyes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=no_eyes"><label for="no_eyes">no eyes</label></a><br>
+            </div>
+            <div>
+                <h3>Eye Accessories</h3>
+                <input type="checkbox" id="bandage_over_one_eye" name="bandage_over_one_eye"
+                    value="bandage_over_one_eye" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bandage_over_one_eye"><label
+                        for="bandage_over_one_eye">bandage over one eye</label></a><br>
+                <input type="checkbox" id="blindfold" name="blindfold" value="blindfold" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blindfold"><label
+                        for="blindfold">blindfold</label></a><br>
+                <input type="checkbox" id="hat_over_eyes" name="hat_over_eyes" value="hat_over_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hat_over_eyes"><label for="hat_over_eyes">hat over
+                        eyes</label></a><br>
+                <input type="checkbox" id="eyepatch" name="eyepatch" value="eyepatch" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyepatch"><label for="eyepatch">eyepatch</label></a><br>
+                <input type="checkbox" id="colored_eyelashes" name="colored_eyelashes" value="colored_eyelashes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=colored_eyelashes"><label for="colored_eyelashes">colored
+                        eyelashes</label></a><br>
+            </div>
+            <div>
+                <h3>Eye Misc</h3>
+                <input type="checkbox" id="glass_eye" name="glass_eye" value="glass_eye" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=glass_eye"><label for="glass_eye">glass
+                        eye</label></a><br>
+                <input type="checkbox" id="mechanical_eye" name="mechanical_eye" value="mechanical_eye"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mechanical_eye"><label for="mechanical_eye">mechanical
+                        eye</label></a><br>
+                <input type="checkbox" id="eye_trail" name="eye_trail" value="eye_trail" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eye_trail"><label for="eye_trail">eye
+                        trail</label></a><br>
+                <input type="checkbox" id="lazy_eye" name="lazy_eye" value="lazy_eye" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lazy_eye"><label for="lazy_eye">lazy eye</label></a><br>
+                <input type="checkbox" id="eyelid_piercing" name="eyelid_piercing" value="eyelid_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyelid_piercing"><label for="eyelid_piercing">eyelid
+                        piercing</label></a><br>
+            </div>
+            <div>
+                <h3>Eyewear Type</h3>
+                <input type="checkbox" id="3d_glasses" name="3d_glasses" value="3d_glasses" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=3d_glasses"><label for="3d_glasses">3d
+                        glasses</label></a><br>
+                <input type="checkbox" id="aviator_sunglasses" name="aviator_sunglasses" value="aviator_sunglasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aviator_sunglasses"><label
+                        for="aviator_sunglasses">aviator sunglasses</label></a><br>
+                <input type="checkbox" id="coke-bottle_glasses" name="coke-bottle_glasses" value="coke-bottle_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=coke-bottle_glasses"><label
+                        for="coke-bottle_glasses">coke-bottle glasses</label></a><br>
+                <input type="checkbox" id="diving_mask" name="diving_mask" value="diving_mask"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=diving_mask"><label for="diving_mask">diving
+                        mask</label></a><br>
+                <input type="checkbox" id="goggles" name="goggles" value="goggles" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=goggles"><label for="goggles">goggles</label></a><br>
+                <input type="checkbox" id="heart-shaped_eyewear" name="heart-shaped_eyewear"
+                    value="heart-shaped_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart-shaped_eyewear"><label
+                        for="heart-shaped_eyewear">heart-shaped eyewear</label></a><br>
+                <input type="checkbox" id="rectangular_eyewear" name="rectangular_eyewear" value="rectangular_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=rectangular_eyewear"><label
+                        for="rectangular_eyewear">rectangular eyewear</label></a><br>
+                <input type="checkbox" id="rimless_eyewear" name="rimless_eyewear" value="rimless_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=rimless_eyewear"><label for="rimless_eyewear">rimless
+                        eyewear</label></a><br>
+                <input type="checkbox" id="round_eyewear" name="round_eyewear" value="round_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=round_eyewear"><label for="round_eyewear">round
+                        eyewear</label></a><br>
+                <input type="checkbox" id="semi-circular_eyewear" name="semi-circular_eyewear"
+                    value="semi-circular_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=semi-circular_eyewear"><label
+                        for="semi-circular_eyewear">semi-circular eyewear</label></a><br>
+                <input type="checkbox" id="star-shaped_eyewear" name="star-shaped_eyewear" value="star-shaped_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=star-shaped_eyewear"><label
+                        for="star-shaped_eyewear">star-shaped eyewear</label></a><br>
+                <input type="checkbox" id="over-rim_eyewear" name="over-rim_eyewear" value="over-rim_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=over-rim_eyewear"><label for="over-rim_eyewear">over-rim
+                        eyewear</label></a><br>
+                <input type="checkbox" id="under-rim_eyewear" name="under-rim_eyewear" value="under-rim_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=under-rim_eyewear"><label
+                        for="under-rim_eyewear">under-rim eyewear</label></a><br>
+                <input type="checkbox" id="teardrop-framed_glasses" name="teardrop-framed_glasses"
+                    value="teardrop-framed_glasses" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=teardrop-framed_glasses"><label
+                        for="teardrop-framed_glasses">teardrop-framed glasses</label></a><br>
+                <input type="checkbox" id="triangular_eyewear" name="triangular_eyewear" value="triangular_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=triangular_eyewear"><label
+                        for="triangular_eyewear">triangular eyewear</label></a><br>
+                <input type="checkbox" id="tortoiseshell-framed_eyewear" name="tortoiseshell-framed_eyewear"
+                    value="tortoiseshell-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tortoiseshell-framed_eyewear"><label
+                        for="tortoiseshell-framed_eyewear">tortoiseshell-framed eyewear</label></a><br>
+                <input type="checkbox" id="flight_goggles" name="flight_goggles" value="flight_goggles"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flight_goggles"><label for="flight_goggles">flight
+                        goggles</label></a><br>
+                <input type="checkbox" id="funny_glasses" name="funny_glasses" value="funny_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=funny_glasses"><label for="funny_glasses">funny
+                        glasses</label></a><br>
+                <input type="checkbox" id="lorgnette" name="lorgnette" value="lorgnette" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lorgnette"><label
+                        for="lorgnette">lorgnette</label></a><br>
+                <input type="checkbox" id="monocle" name="monocle" value="monocle" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=monocle"><label for="monocle">monocle</label></a><br>
+                <input type="checkbox" id="nodoka_glasses" name="nodoka_glasses" value="nodoka_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nodoka_glasses"><label for="nodoka_glasses">nodoka
+                        glasses</label></a><br>
+                <input type="checkbox" id="opaque_glasses" name="opaque_glasses" value="opaque_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=opaque_glasses"><label for="opaque_glasses">opaque
+                        glasses</label></a><br>
+                <input type="checkbox" id="opera_glasses" name="opera_glasses" value="opera_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=opera_glasses"><label for="opera_glasses">opera
+                        glasses</label></a><br>
+                <input type="checkbox" id="pince-nez" name="pince-nez" value="pince-nez" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pince-nez"><label
+                        for="pince-nez">pince-nez</label></a><br>
+                <input type="checkbox" id="safety_glasses" name="safety_glasses" value="safety_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=safety_glasses"><label for="safety_glasses">safety
+                        glasses</label></a><br>
+                <input type="checkbox" id="scouter" name="scouter" value="scouter" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=scouter"><label for="scouter">scouter</label></a><br>
+                <input type="checkbox" id="shooting_glasses" name="shooting_glasses" value="shooting_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shooting_glasses"><label for="shooting_glasses">shooting
+                        glasses</label></a><br>
+                <input type="checkbox" id="ski_goggles" name="ski_goggles" value="ski_goggles"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ski_goggles"><label for="ski_goggles">ski
+                        goggles</label></a><br>
+                <input type="checkbox" id="x-ray_glasses" name="x-ray_glasses" value="x-ray_glasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=x-ray_glasses"><label for="x-ray_glasses">x-ray
+                        glasses</label></a><br>
+                <input type="checkbox" id="sunglasses" name="sunglasses" value="sunglasses" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sunglasses"><label
+                        for="sunglasses">sunglasses</label></a><br>
+                <input type="checkbox" id="aviator_sunglasses" name="aviator_sunglasses" value="aviator_sunglasses"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aviator_sunglasses"><label
+                        for="aviator_sunglasses">aviator sunglasses</label></a><br>
+                <input type="checkbox" id="shutter_shades" name="shutter_shades" value="shutter_shades"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shutter_shades"><label for="shutter_shades">shutter
+                        shades</label></a><br>
+            </div>
+            <div>
+                <h3>Eyewear Frame Color</h3>
+                <input type="checkbox" id="aqua-framed_eyewear" name="aqua-framed_eyewear" value="aqua-framed_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua-framed_eyewear"><label
+                        for="aqua-framed_eyewear">aqua-framed eyewear</label></a><br>
+                <input type="checkbox" id="black-framed_eyewear" name="black-framed_eyewear"
+                    value="black-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black-framed_eyewear"><label
+                        for="black-framed_eyewear">black-framed eyewear</label></a><br>
+                <input type="checkbox" id="blue-framed_eyewear" name="blue-framed_eyewear" value="blue-framed_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue-framed_eyewear"><label
+                        for="blue-framed_eyewear">blue-framed eyewear</label></a><br>
+                <input type="checkbox" id="brown-framed_eyewear" name="brown-framed_eyewear"
+                    value="brown-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=brown-framed_eyewear"><label
+                        for="brown-framed_eyewear">brown-framed eyewear</label></a><br>
+                <input type="checkbox" id="green-framed_eyewear" name="green-framed_eyewear"
+                    value="green-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green-framed_eyewear"><label
+                        for="green-framed_eyewear">green-framed eyewear</label></a><br>
+                <input type="checkbox" id="grey-framed_eyewear" name="grey-framed_eyewear" value="grey-framed_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey-framed_eyewear"><label
+                        for="grey-framed_eyewear">grey-framed eyewear</label></a><br>
+                <input type="checkbox" id="magenta-framed_eyewear" name="magenta-framed_eyewear"
+                    value="magenta-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=magenta-framed_eyewear"><label
+                        for="magenta-framed_eyewear">magenta-framed eyewear</label></a><br>
+                <input type="checkbox" id="orange-framed_eyewear" name="orange-framed_eyewear"
+                    value="orange-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange-framed_eyewear"><label
+                        for="orange-framed_eyewear">orange-framed eyewear</label></a><br>
+                <input type="checkbox" id="pink-framed_eyewear" name="pink-framed_eyewear" value="pink-framed_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink-framed_eyewear"><label
+                        for="pink-framed_eyewear">pink-framed eyewear</label></a><br>
+                <input type="checkbox" id="purple-framed_eyewear" name="purple-framed_eyewear"
+                    value="purple-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple-framed_eyewear"><label
+                        for="purple-framed_eyewear">purple-framed eyewear</label></a><br>
+                <input type="checkbox" id="red-framed_eyewear" name="red-framed_eyewear" value="red-framed_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red-framed_eyewear"><label
+                        for="red-framed_eyewear">red-framed eyewear</label></a><br>
+                <input type="checkbox" id="white-framed_eyewear" name="white-framed_eyewear"
+                    value="white-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=white-framed_eyewear"><label
+                        for="white-framed_eyewear">white-framed eyewear</label></a><br>
+                <input type="checkbox" id="two-tone_eyewear" name="two-tone_eyewear" value="two-tone_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=two-tone_eyewear"><label for="two-tone_eyewear">two-tone
+                        eyewear</label></a><br>
+                <input type="checkbox" id="yellow-framed_eyewear" name="yellow-framed_eyewear"
+                    value="yellow-framed_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow-framed_eyewear"><label
+                        for="yellow-framed_eyewear">yellow-framed eyewear</label></a><br>
+            </div>
+            <div>
+                <h3>Eyewear Lens Color</h3>
+                <input type="checkbox" id="aqua-tinted_eyewear" name="aqua-tinted_eyewear" value="aqua-tinted_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua-tinted_eyewear"><label
+                        for="aqua-tinted_eyewear">aqua-tinted eyewear</label></a><br>
+                <input type="checkbox" id="blue-tinted_eyewear" name="blue-tinted_eyewear" value="blue-tinted_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue-tinted_eyewear"><label
+                        for="blue-tinted_eyewear">blue-tinted eyewear</label></a><br>
+                <input type="checkbox" id="brown-tinted_eyewear" name="brown-tinted_eyewear"
+                    value="brown-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=brown-tinted_eyewear"><label
+                        for="brown-tinted_eyewear">brown-tinted eyewear</label></a><br>
+                <input type="checkbox" id="green-tinted_eyewear" name="green-tinted_eyewear"
+                    value="green-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green-tinted_eyewear"><label
+                        for="green-tinted_eyewear">green-tinted eyewear</label></a><br>
+                <input type="checkbox" id="grey-tinted_eyewear" name="grey-tinted_eyewear" value="grey-tinted_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey-tinted_eyewear"><label
+                        for="grey-tinted_eyewear">grey-tinted eyewear</label></a><br>
+                <input type="checkbox" id="multicolour-tinted_eyewear" name="multicolour-tinted_eyewear"
+                    value="multicolour-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multicolour-tinted_eyewear"><label
+                        for="multicolour-tinted_eyewear">multicolour-tinted eyewear</label></a><br>
+                <input type="checkbox" id="rainbow-tinted_eyewear" name="rainbow-tinted_eyewear"
+                    value="rainbow-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=rainbow-tinted_eyewear"><label
+                        for="rainbow-tinted_eyewear">rainbow-tinted eyewear</label></a><br>
+                <input type="checkbox" id="orange-tinted_eyewear" name="orange-tinted_eyewear"
+                    value="orange-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange-tinted_eyewear"><label
+                        for="orange-tinted_eyewear">orange-tinted eyewear</label></a><br>
+                <input type="checkbox" id="pink-tinted_eyewear" name="pink-tinted_eyewear" value="pink-tinted_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink-tinted_eyewear"><label
+                        for="pink-tinted_eyewear">pink-tinted eyewear</label></a><br>
+                <input type="checkbox" id="purple-tinted_eyewear" name="purple-tinted_eyewear"
+                    value="purple-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple-tinted_eyewear"><label
+                        for="purple-tinted_eyewear">purple-tinted eyewear</label></a><br>
+                <input type="checkbox" id="red-tinted_eyewear" name="red-tinted_eyewear" value="red-tinted_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red-tinted_eyewear"><label
+                        for="red-tinted_eyewear">red-tinted eyewear</label></a><br>
+                <input type="checkbox" id="yellow-tinted_eyewear" name="yellow-tinted_eyewear"
+                    value="yellow-tinted_eyewear" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow-tinted_eyewear"><label
+                        for="yellow-tinted_eyewear">yellow-tinted eyewear</label></a><br>
+            </div>
+            <div>
+                <h3>Eyewear Misc</h3>
+                <input type="checkbox" id="crooked_eyewear" name="crooked_eyewear" value="crooked_eyewear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crooked_eyewear"><label for="crooked_eyewear">crooked
+                        eyewear</label></a><br>
+                <input type="checkbox" id="eyewear_on_head" name="eyewear_on_head" value="eyewear_on_head"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyewear_on_head"><label for="eyewear_on_head">eyewear on
+                        head</label></a><br>
+                <input type="checkbox" id="eyewear_on_headwear" name="eyewear_on_headwear" value="eyewear_on_headwear"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyewear_on_headwear"><label
+                        for="eyewear_on_headwear">eyewear on headwear</label></a><br>
+                <input type="checkbox" id="eyewear_hang" name="eyewear_hang" value="eyewear_hang"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyewear_hang"><label for="eyewear_hang">eyewear
+                        hang</label></a><br>
+                <input type="checkbox" id="eyewear_strap" name="eyewear_strap" value="eyewear_strap"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyewear_strap"><label for="eyewear_strap">eyewear
+                        strap</label></a><br>
+                <input type="checkbox" id="eyewear_switch" name="eyewear_switch" value="eyewear_switch"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyewear_switch"><label for="eyewear_switch">eyewear
+                        switch</label></a><br>
+            </div>
+            <div>
+                <h3>Face</h3>
+                <input type="checkbox" id="forehead_jewel" name="forehead_jewel" value="forehead_jewel"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=forehead_jewel"><label for="forehead_jewel">forehead
+                        jewel</label></a><br>
+                <input type="checkbox" id="forehead_mark" name="forehead_mark" value="forehead_mark"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=forehead_mark"><label for="forehead_mark">forehead
+                        mark</label></a><br>
+                <input type="checkbox" id="eyebrow_piercing" name="eyebrow_piercing" value="eyebrow_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=eyebrow_piercing"><label for="eyebrow_piercing">eyebrow
+                        piercing</label></a><br>
+                <input type="checkbox" id="anti-eyebrow_piercing" name="anti-eyebrow_piercing"
+                    value="anti-eyebrow_piercing" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=anti-eyebrow_piercing"><label
+                        for="anti-eyebrow_piercing">anti-eyebrow piercing</label></a><br>
+                <input type="checkbox" id="nose_piercing" name="nose_piercing" value="nose_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nose_piercing"><label for="nose_piercing">nose
+                        piercing</label></a><br>
+                <input type="checkbox" id="bridge_piercing" name="bridge_piercing" value="bridge_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bridge_piercing"><label for="bridge_piercing">bridge
+                        piercing</label></a><br>
+                <input type="checkbox" id="nose_ring" name="nose_ring" value="nose_ring" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nose_ring"><label for="nose_ring">nose
+                        ring</label></a><br>
+                <input type="checkbox" id="mask" name="mask" value="mask" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mask"><label for="mask">mask</label></a><br>
+                <input type="checkbox" id="plague_doctor_mask" name="plague_doctor_mask" value="plague_doctor_mask"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=plague_doctor_mask"><label
+                        for="plague_doctor_mask">plague doctor mask</label></a><br>
+                <input type="checkbox" id="surgical_mask" name="surgical_mask" value="surgical_mask"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=surgical_mask"><label for="surgical_mask">surgical
+                        mask</label></a><br>
+                <input type="checkbox" id="freckles" name="freckles" value="freckles" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=freckles"><label for="freckles">freckles</label></a><br>
+                <input type="checkbox" id="mole_on_cheek" name="mole_on_cheek" value="mole_on_cheek"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_on_cheek"><label for="mole_on_cheek">mole on
+                        cheek</label></a><br>
+                <input type="checkbox" id="mole_on_nose" name="mole_on_nose" value="mole_on_nose"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_on_nose"><label for="mole_on_nose">mole on
+                        nose</label></a><br>
+            </div>
+            <div>
+                <h3>Hair Accessories</h3>
+                <input type="checkbox" id="bun_cover" name="bun_cover" value="bun_cover" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bun_cover"><label for="bun_cover">bun
+                        cover</label></a><br>
+                <input type="checkbox" id="hairpods" name="hairpods" value="hairpods" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hairpods"><label for="hairpods">hairpods</label></a><br>
+                <input type="checkbox" id="chopsticks" name="chopsticks" value="chopsticks" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=chopsticks"><label
+                        for="chopsticks">chopsticks</label></a><br>
+                <input type="checkbox" id="comb" name="comb" value="comb" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=comb"><label for="comb">comb</label></a><br>
+                <input type="checkbox" id="hair_beads" name="hair_beads" value="hair_beads" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_beads"><label for="hair_beads">hair
+                        beads</label></a><br>
+                <input type="checkbox" id="hair_bell" name="hair_bell" value="hair_bell" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_bell"><label for="hair_bell">hair
+                        bell</label></a><br>
+                <input type="checkbox" id="hair_bobbles" name="hair_bobbles" value="hair_bobbles"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_bobbles"><label for="hair_bobbles">hair
+                        bobbles</label></a><br>
+                <input type="checkbox" id="hair_bow" name="hair_bow" value="hair_bow" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_bow"><label for="hair_bow">hair bow</label></a><br>
+                <input type="checkbox" id="hair_ribbon" name="hair_ribbon" value="hair_ribbon"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_ribbon"><label for="hair_ribbon">hair
+                        ribbon</label></a><br>
+                <input type="checkbox" id="hairclip" name="hairclip" value="hairclip" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hairclip"><label for="hairclip">hairclip</label></a><br>
+                <input type="checkbox" id="hairpin" name="hairpin" value="hairpin" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hairpin"><label for="hairpin">hairpin</label></a><br>
+                <input type="checkbox" id="hair_flower" name="hair_flower" value="hair_flower"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_flower"><label for="hair_flower">hair
+                        flower</label></a><br>
+                <input type="checkbox" id="hair_stick" name="hair_stick" value="hair_stick" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_stick"><label for="hair_stick">hair
+                        stick</label></a><br>
+                <input type="checkbox" id="hair_tubes" name="hair_tubes" value="hair_tubes" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_tubes"><label for="hair_tubes">hair
+                        tubes</label></a><br>
+                <input type="checkbox" id="kanzashi" name="kanzashi" value="kanzashi" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=kanzashi"><label for="kanzashi">kanzashi</label></a><br>
+                <input type="checkbox" id="hair_tie" name="hair_tie" value="hair_tie" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_tie"><label for="hair_tie">hair tie</label></a><br>
+                <input type="checkbox" id="hairband" name="hairband" value="hairband" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hairband"><label for="hairband">hairband</label></a><br>
+                <input type="checkbox" id="hair_weapon" name="hair_weapon" value="hair_weapon"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_weapon"><label for="hair_weapon">hair
+                        weapon</label></a><br>
+                <input type="checkbox" id="headband" name="headband" value="headband" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=headband"><label for="headband">headband</label></a><br>
+                <input type="checkbox" id="knife_in_hair" name="knife_in_hair" value="knife_in_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=knife_in_hair"><label for="knife_in_hair">knife in
+                        hair</label></a><br>
+                <input type="checkbox" id="hair_scrunchie" name="hair_scrunchie" value="hair_scrunchie"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_scrunchie"><label
+                        for="hair_scrunchie">hair_scrunchie</label></a><br>
+                <input type="checkbox" id="wig" name="wig" value="wig" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=wig"><label for="wig">wig</label></a><br>
+            </div>
+            <div>
+                <h3>Facial Hair</h3>
+                <input type="checkbox" id="neckbeard" name="neckbeard" value="neckbeard" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=neckbeard"><label
+                        for="neckbeard">neckbeard</label></a><br>
+                <input type="checkbox" id="two-tone_beard" name="two-tone_beard" value="two-tone_beard"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=two-tone_beard"><label for="two-tone_beard">two-tone
+                        beard</label></a><br>
+                <input type="checkbox" id="braided_beard" name="braided_beard" value="braided_beard"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=braided_beard"><label for="braided_beard">braided
+                        beard</label></a><br>
+                <input type="checkbox" id="long_beard" name="long_beard" value="long_beard" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=long_beard"><label for="long_beard">long
+                        beard</label></a><br>
+                <input type="checkbox" id="tied_beard" name="tied_beard" value="tied_beard" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tied_beard"><label for="tied_beard">tied
+                        beard</label></a><br>
+                <input type="checkbox" id="very_long_beard" name="very_long_beard" value="very_long_beard"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=very_long_beard"><label for="very_long_beard">very long
+                        beard</label></a><br>
+                <input type="checkbox" id="goatee" name="goatee" value="goatee" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=goatee"><label for="goatee">goatee</label></a><br>
+                <input type="checkbox" id="mustache" name="mustache" value="mustache" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mustache"><label for="mustache">mustache</label></a><br>
+                <input type="checkbox" id="fake_mustache" name="fake_mustache" value="fake_mustache"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=fake_mustache"><label for="fake_mustache">fake
+                        mustache</label></a><br>
+                <input type="checkbox" id="toothbrush_mustache" name="toothbrush_mustache" value="toothbrush_mustache"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=toothbrush_mustache"><label
+                        for="toothbrush_mustache">toothbrush mustache</label></a><br>
+                <input type="checkbox" id="stubble" name="stubble" value="stubble" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=stubble"><label for="stubble">stubble</label></a><br>
+                <input type="checkbox" id="bearded_girl" name="bearded_girl" value="bearded_girl"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bearded_girl"><label for="bearded_girl">bearded
+                        girl</label></a><br>
+            </div>
+            <div>
+                <h3>Fantasy Hair</h3>
+                <input type="checkbox" id="cloud_hair" name="cloud_hair" value="cloud_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cloud_hair"><label for="cloud_hair">cloud
+                        hair</label></a><br>
+                <input type="checkbox" id="chocolate_hair" name="chocolate_hair" value="chocolate_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=chocolate_hair"><label for="chocolate_hair">chocolate
+                        hair</label></a><br>
+                <input type="checkbox" id="crystal_hair" name="crystal_hair" value="crystal_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crystal_hair"><label for="crystal_hair">crystal
+                        hair</label></a><br>
+                <input type="checkbox" id="energy_hair" name="energy_hair" value="energy_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=energy_hair"><label for="energy_hair">energy
+                        hair</label></a><br>
+                <input type="checkbox" id="feather_hair" name="feather_hair" value="feather_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=feather_hair"><label for="feather_hair">feather
+                        hair</label></a><br>
+                <input type="checkbox" id="fiery_hair" name="fiery_hair" value="fiery_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=fiery_hair"><label for="fiery_hair">fiery
+                        hair</label></a><br>
+                <input type="checkbox" id="glowing_hair" name="glowing_hair" value="glowing_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=glowing_hair"><label for="glowing_hair">glowing
+                        hair</label></a><br>
+                <input type="checkbox" id="intestine_hair" name="intestine_hair" value="intestine_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=intestine_hair"><label for="intestine_hair">intestine
+                        hair</label></a><br>
+                <input type="checkbox" id="liquid_hair" name="liquid_hair" value="liquid_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=liquid_hair"><label for="liquid_hair">liquid
+                        hair</label></a><br>
+                <input type="checkbox" id="mechanical_air" name="mechanical_air" value="mechanical_air"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mechanical_air"><label for="mechanical_air">mechanical
+                        air</label></a><br>
+                <input type="checkbox" id="plant_hair" name="plant_hair" value="plant_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=plant_hair"><label for="plant_hair">plant
+                        hair</label></a><br>
+                <input type="checkbox" id="prehensile_hair" name="prehensile_hair" value="prehensile_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=prehensile_hair"><label for="prehensile_hair">prehensile
+                        hair</label></a><br>
+                <input type="checkbox" id="helicopter_hair" name="helicopter_hair" value="helicopter_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=helicopter_hair"><label for="helicopter_hair">helicopter
+                        hair</label></a><br>
+                <input type="checkbox" id="tentacle_hair" name="tentacle_hair" value="tentacle_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tentacle_hair"><label for="tentacle_hair">tentacle
+                        hair</label></a><br>
+                <input type="checkbox" id="snake_hair" name="snake_hair" value="snake_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=snake_hair"><label for="snake_hair">snake
+                        hair</label></a><br>
+                <input type="checkbox" id="starry_hair" name="starry_hair" value="starry_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=starry_hair"><label for="starry_hair">starry
+                        hair</label></a><br>
+            </div>
+            <div>
+                <h3>Hair Misc</h3>
+                <input type="checkbox" id="blood_in_hair" name="blood_in_hair" value="blood_in_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blood_in_hair"><label for="blood_in_hair">blood in
+                        hair</label></a><br>
+                <input type="checkbox" id="burnt_hair" name="burnt_hair" value="burnt_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=burnt_hair"><label for="burnt_hair">burnt
+                        hair</label></a><br>
+            </div>
+            <div>
+                <h3>Hair Color</h3>
+                <input type="checkbox" id="aqua_hair" name="aqua_hair" value="aqua_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua_hair"><label for="aqua_hair">aqua
+                        hair</label></a><br>
+                <input type="checkbox" id="black_hair" name="black_hair" value="black_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black_hair"><label for="black_hair">black
+                        hair</label></a><br>
+                <input type="checkbox" id="blonde_hair" name="blonde_hair" value="blonde_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blonde_hair"><label for="blonde_hair">blonde
+                        hair</label></a><br>
+                <input type="checkbox" id="blue_hair" name="blue_hair" value="blue_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_hair"><label for="blue_hair">blue
+                        hair</label></a><br>
+                <input type="checkbox" id="light_blue_hair" name="light_blue_hair" value="light_blue_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=light_blue_hair"><label for="light_blue_hair">light blue
+                        hair</label></a><br>
+                <input type="checkbox" id="dark_blue_hair" name="dark_blue_hair" value="dark_blue_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dark_blue_hair"><label for="dark_blue_hair">dark blue
+                        hair</label></a><br>
+                <input type="checkbox" id="brown_hair" name="brown_hair" value="brown_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=brown_hair"><label for="brown_hair">brown
+                        hair</label></a><br>
+                <input type="checkbox" id="light_brown_hair" name="light_brown_hair" value="light_brown_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=light_brown_hair"><label for="light_brown_hair">light
+                        brown hair</label></a><br>
+                <input type="checkbox" id="green_hair" name="green_hair" value="green_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_hair"><label for="green_hair">green
+                        hair</label></a><br>
+                <input type="checkbox" id="orange_hair" name="orange_hair" value="orange_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_hair"><label for="orange_hair">orange
+                        hair</label></a><br>
+                <input type="checkbox" id="pink_hair" name="pink_hair" value="pink_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink_hair"><label for="pink_hair">pink
+                        hair</label></a><br>
+                <input type="checkbox" id="purple_hair" name="purple_hair" value="purple_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_hair"><label for="purple_hair">purple
+                        hair</label></a><br>
+                <input type="checkbox" id="light_purple_hair" name="light_purple_hair" value="light_purple_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=light_purple_hair"><label for="light_purple_hair">light
+                        purple hair</label></a><br>
+                <input type="checkbox" id="red_hair" name="red_hair" value="red_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_hair"><label for="red_hair">red hair</label></a><br>
+                <input type="checkbox" id="white_hair" name="white_hair" value="white_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=white_hair"><label for="white_hair">white
+                        hair</label></a><br>
+                <input type="checkbox" id="colored_inner_hair" name="colored_inner_hair" value="colored_inner_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=colored_inner_hair"><label
+                        for="colored_inner_hair">colored inner hair</label></a><br>
+                <input type="checkbox" id="colored_tips" name="colored_tips" value="colored_tips"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=colored_tips"><label for="colored_tips">colored
+                        tips</label></a><br>
+                <input type="checkbox" id="gradient_hair" name="gradient_hair" value="gradient_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=gradient_hair"><label for="gradient_hair">gradient
+                        hair</label></a><br>
+                <input type="checkbox" id="print_hair" name="print_hair" value="print_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=print_hair"><label for="print_hair">print
+                        hair</label></a><br>
+                <input type="checkbox" id="rainbow_hair" name="rainbow_hair" value="rainbow_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=rainbow_hair"><label for="rainbow_hair">rainbow
+                        hair</label></a><br>
+                <input type="checkbox" id="split-color_hair" name="split-color_hair" value="split-color_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=split-color_hair"><label
+                        for="split-color_hair">split-color hair</label></a><br>
+                <input type="checkbox" id="spotted_hair" name="spotted_hair" value="spotted_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=spotted_hair"><label for="spotted_hair">spotted
+                        hair</label></a><br>
+                <input type="checkbox" id="streaked_hair" name="streaked_hair" value="streaked_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=streaked_hair"><label for="streaked_hair">streaked
+                        hair</label></a><br>
+                <input type="checkbox" id="two-tone_hair" name="two-tone_hair" value="two-tone_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=two-tone_hair"><label for="two-tone_hair">two-tone
+                        hair</label></a><br>
+                <input type="checkbox" id="translucent_hair" name="translucent_hair" value="translucent_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=translucent_hair"><label
+                        for="translucent_hair">translucent hair</label></a><br>
+            </div>
+            <div>
+                <h3>Hair Length and Volume</h3>
+                <input type="checkbox" id="very_short_hair" name="very_short_hair" value="very_short_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=very_short_hair"><label for="very_short_hair">very short
+                        hair</label></a><br>
+                <input type="checkbox" id="short_hair" name="short_hair" value="short_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=short_hair"><label for="short_hair">short
+                        hair</label></a><br>
+                <input type="checkbox" id="medium_hair" name="medium_hair" value="medium_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=medium_hair"><label for="medium_hair">medium
+                        hair</label></a><br>
+                <input type="checkbox" id="long_hair" name="long_hair" value="long_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=long_hair"><label for="long_hair">long
+                        hair</label></a><br>
+                <input type="checkbox" id="very_long_hair" name="very_long_hair" value="very_long_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=very_long_hair"><label for="very_long_hair">very long
+                        hair</label></a><br>
+                <input type="checkbox" id="absurdly_long_hair" name="absurdly_long_hair" value="absurdly_long_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=absurdly_long_hair"><label
+                        for="absurdly_long_hair">absurdly long hair</label></a><br>
+                <input type="checkbox" id="big_hair" name="big_hair" value="big_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=big_hair"><label for="big_hair">big hair</label></a><br>
+                <input type="checkbox" id="bald" name="bald" value="bald" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bald"><label for="bald">bald</label></a><br>
+                <input type="checkbox" id="bald girl" name="bald girl" value="bald girl" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bald%20girl"><label for="bald girl">bald
+                        girl</label></a><br>
+            </div>
+            <div>
+                <h3>Short Hair Hairstyles</h3>
+                <input type="checkbox" id="bob_cut" name="bob_cut" value="bob_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bob_cut"><label for="bob_cut">bob cut</label></a><br>
+                <input type="checkbox" id="inverted_bob" name="inverted_bob" value="inverted_bob"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=inverted_bob"><label for="inverted_bob">inverted
+                        bob</label></a><br>
+                <input type="checkbox" id="bowl_cut" name="bowl_cut" value="bowl_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bowl_cut"><label for="bowl_cut">bowl cut</label></a><br>
+                <input type="checkbox" id="buzz_cut" name="buzz_cut" value="buzz_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=buzz_cut"><label for="buzz_cut">buzz cut</label></a><br>
+                <input type="checkbox" id="chonmage" name="chonmage" value="chonmage" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=chonmage"><label for="chonmage">chonmage</label></a><br>
+                <input type="checkbox" id="crew_cut" name="crew_cut" value="crew_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crew_cut"><label for="crew_cut">crew cut</label></a><br>
+                <input type="checkbox" id="flattop" name="flattop" value="flattop" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flattop"><label for="flattop">flattop</label></a><br>
+                <input type="checkbox" id="pixie_cut" name="pixie_cut" value="pixie_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pixie_cut"><label for="pixie_cut">pixie
+                        cut</label></a><br>
+                <input type="checkbox" id="undercut" name="undercut" value="undercut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=undercut"><label for="undercut">undercut</label></a><br>
+            </div>
+            <div>
+                <h3>Medium Hair Hairstyles</h3>
+                <input type="checkbox" id="flipped_hair" name="flipped_hair" value="flipped_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flipped_hair"><label for="flipped_hair">flipped
+                        hair</label></a><br>
+            </div>
+            <div>
+                <h3>Long Hair Hairstyles</h3>
+                <input type="checkbox" id="cornrows" name="cornrows" value="cornrows" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cornrows"><label for="cornrows">cornrows</label></a><br>
+                <input type="checkbox" id="dreadlocks" name="dreadlocks" value="dreadlocks" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dreadlocks"><label
+                        for="dreadlocks">dreadlocks</label></a><br>
+                <input type="checkbox" id="hime_cut" name="hime_cut" value="hime_cut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hime_cut"><label for="hime_cut">hime cut</label></a><br>
+                <input type="checkbox" id="mullet" name="mullet" value="mullet" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mullet"><label for="mullet">mullet</label></a><br>
+            </div>
+            <div>
+                <h3>Tied Hair</h3>
+                <input type="checkbox" id="bow-shaped_hair" name="bow-shaped_hair" value="bow-shaped_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bow-shaped_hair"><label for="bow-shaped_hair">bow-shaped
+                        hair</label></a><br>
+                <input type="checkbox" id="braid" name="braid" value="braid" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=braid"><label for="braid">braid</label></a><br>
+                <input type="checkbox" id="braided_bangs" name="braided_bangs" value="braided_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=braided_bangs"><label for="braided_bangs">braided
+                        bangs</label></a><br>
+                <input type="checkbox" id="front_braid" name="front_braid" value="front_braid"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=front_braid"><label for="front_braid">front
+                        braid</label></a><br>
+                <input type="checkbox" id="side_braid" name="side_braid" value="side_braid" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=side_braid"><label for="side_braid">side
+                        braid</label></a><br>
+                <input type="checkbox" id="french_braid" name="french_braid" value="french_braid"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=french_braid"><label for="french_braid">french
+                        braid</label></a><br>
+                <input type="checkbox" id="crown_braid" name="crown_braid" value="crown_braid"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crown_braid"><label for="crown_braid">crown
+                        braid</label></a><br>
+                <input type="checkbox" id="single_braid" name="single_braid" value="single_braid"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_braid"><label for="single_braid">single
+                        braid</label></a><br>
+                <input type="checkbox" id="multiple_braids" name="multiple_braids" value="multiple_braids"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multiple_braids"><label for="multiple_braids">multiple
+                        braids</label></a><br>
+                <input type="checkbox" id="twin_braids" name="twin_braids" value="twin_braids"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=twin_braids"><label for="twin_braids">twin
+                        braids</label></a><br>
+                <input type="checkbox" id="low_twin_braids" name="low_twin_braids" value="low_twin_braids"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=low_twin_braids"><label for="low_twin_braids">low twin
+                        braids</label></a><br>
+                <input type="checkbox" id="tri_braids" name="tri_braids" value="tri_braids" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tri_braids"><label for="tri_braids">tri
+                        braids</label></a><br>
+                <input type="checkbox" id="quad_braids" name="quad_braids" value="quad_braids"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=quad_braids"><label for="quad_braids">quad
+                        braids</label></a><br>
+                <input type="checkbox" id="flower-shaped_hair" name="flower-shaped_hair" value="flower-shaped_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flower-shaped_hair"><label
+                        for="flower-shaped_hair">flower-shaped hair</label></a><br>
+                <input type="checkbox" id="hair_bun" name="hair_bun" value="hair_bun" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_bun"><label for="hair_bun">hair bun</label></a><br>
+                <input type="checkbox" id="braided_bun" name="braided_bun" value="braided_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=braided_bun"><label for="braided_bun">braided
+                        bun</label></a><br>
+                <input type="checkbox" id="single_hair_bun" name="single_hair_bun" value="single_hair_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_hair_bun"><label for="single_hair_bun">single hair
+                        bun</label></a><br>
+                <input type="checkbox" id="double_bun" name="double_bun" value="double_bun" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=double_bun"><label for="double_bun">double
+                        bun</label></a><br>
+                <input type="checkbox" id="cone_hair_bun" name="cone_hair_bun" value="cone_hair_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cone_hair_bun"><label for="cone_hair_bun">cone hair
+                        bun</label></a><br>
+                <input type="checkbox" id="doughnut_hair_bun" name="doughnut_hair_bun" value="doughnut_hair_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=doughnut_hair_bun"><label
+                        for="doughnut_hair_bun">doughnut hair bun</label></a><br>
+                <input type="checkbox" id="heart_hair_bun" name="heart_hair_bun" value="heart_hair_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart_hair_bun"><label for="heart_hair_bun">heart hair
+                        bun</label></a><br>
+                <input type="checkbox" id="triple_bun" name="triple_bun" value="triple_bun" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=triple_bun"><label for="triple_bun">triple
+                        bun</label></a><br>
+                <input type="checkbox" id="cone_hair_bun" name="cone_hair_bun" value="cone_hair_bun"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=cone_hair_bun"><label for="cone_hair_bun">cone hair
+                        bun</label></a><br>
+                <input type="checkbox" id="hair_rings" name="hair_rings" value="hair_rings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_rings"><label for="hair_rings">hair
+                        rings</label></a><br>
+                <input type="checkbox" id="single_hair_ring" name="single_hair_ring" value="single_hair_ring"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_hair_ring"><label for="single_hair_ring">single
+                        hair ring</label></a><br>
+                <input type="checkbox" id="half_updo" name="half_updo" value="half_updo" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=half_updo"><label for="half_updo">half
+                        updo</label></a><br>
+                <input type="checkbox" id="one_side_up" name="one_side_up" value="one_side_up"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=one_side_up"><label for="one_side_up">one side
+                        up</label></a><br>
+                <input type="checkbox" id="two_side_up" name="two_side_up" value="two_side_up"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=two_side_up"><label for="two_side_up">two side
+                        up</label></a><br>
+                <input type="checkbox" id="low-braided_long_hair" name="low-braided_long_hair"
+                    value="low-braided_long_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=low-braided_long_hair"><label
+                        for="low-braided_long_hair">low-braided long hair</label></a><br>
+                <input type="checkbox" id="low-tied_long_hair" name="low-tied_long_hair" value="low-tied_long_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=low-tied_long_hair"><label
+                        for="low-tied_long_hair">low-tied long hair</label></a><br>
+                <input type="checkbox" id="mizura" name="mizura" value="mizura" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mizura"><label for="mizura">mizura</label></a><br>
+                <input type="checkbox" id="multi-tied_hair" name="multi-tied_hair" value="multi-tied_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=multi-tied_hair"><label for="multi-tied_hair">multi-tied
+                        hair</label></a><br>
+                <input type="checkbox" id="nihongami" name="nihongami" value="nihongami" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nihongami"><label
+                        for="nihongami">nihongami</label></a><br>
+                <input type="checkbox" id="ponytail" name="ponytail" value="ponytail" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ponytail"><label for="ponytail">ponytail</label></a><br>
+                <input type="checkbox" id="folded_ponytail" name="folded_ponytail" value="folded_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=folded_ponytail"><label for="folded_ponytail">folded
+                        ponytail</label></a><br>
+                <input type="checkbox" id="front_ponytail" name="front_ponytail" value="front_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=front_ponytail"><label for="front_ponytail">front
+                        ponytail</label></a><br>
+                <input type="checkbox" id="high_ponytail" name="high_ponytail" value="high_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=high_ponytail"><label for="high_ponytail">high
+                        ponytail</label></a><br>
+                <input type="checkbox" id="short_ponytail" name="short_ponytail" value="short_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=short_ponytail"><label for="short_ponytail">short
+                        ponytail</label></a><br>
+                <input type="checkbox" id="side_ponytail" name="side_ponytail" value="side_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=side_ponytail"><label for="side_ponytail">side
+                        ponytail</label></a><br>
+                <input type="checkbox" id="split_ponytail" name="split_ponytail" value="split_ponytail"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=split_ponytail"><label for="split_ponytail">split
+                        ponytail</label></a><br>
+                <input type="checkbox" id="star-shaped_hair" name="star-shaped_hair" value="star-shaped_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=star-shaped_hair"><label
+                        for="star-shaped_hair">star-shaped hair</label></a><br>
+                <input type="checkbox" id="topknot" name="topknot" value="topknot" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=topknot"><label for="topknot">topknot</label></a><br>
+                <input type="checkbox" id="twintails" name="twintails" value="twintails" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=twintails"><label
+                        for="twintails">twintails</label></a><br>
+                <input type="checkbox" id="low_twintails" name="low_twintails" value="low_twintails"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=low_twintails"><label for="low_twintails">low
+                        twintails</label></a><br>
+                <input type="checkbox" id="short_twintails" name="short_twintails" value="short_twintails"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=short_twintails"><label for="short_twintails">short
+                        twintails</label></a><br>
+                <input type="checkbox" id="uneven_twintails" name="uneven_twintails" value="uneven_twintails"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=uneven_twintails"><label for="uneven_twintails">uneven
+                        twintails</label></a><br>
+                <input type="checkbox" id="tri_tails" name="tri_tails" value="tri_tails" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tri_tails"><label for="tri_tails">tri
+                        tails</label></a><br>
+                <input type="checkbox" id="quad_tails" name="quad_tails" value="quad_tails" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=quad_tails"><label for="quad_tails">quad
+                        tails</label></a><br>
+                <input type="checkbox" id="quin_tails" name="quin_tails" value="quin_tails" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=quin_tails"><label for="quin_tails">quin
+                        tails</label></a><br>
+            </div>
+            <div>
+                <h3>Tall Hairstyles</h3>
+                <input type="checkbox" id="afro" name="afro" value="afro" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=afro"><label for="afro">afro</label></a><br>
+                <input type="checkbox" id="huge_afro" name="huge_afro" value="huge_afro" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=huge_afro"><label for="huge_afro">huge
+                        afro</label></a><br>
+                <input type="checkbox" id="beehive_hairdo" name="beehive_hairdo" value="beehive_hairdo"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=beehive_hairdo"><label for="beehive_hairdo">beehive
+                        hairdo</label></a><br>
+                <input type="checkbox" id="crested_hair" name="crested_hair" value="crested_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crested_hair"><label for="crested_hair">crested
+                        hair</label></a><br>
+                <input type="checkbox" id="pompadour" name="pompadour" value="pompadour" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pompadour"><label
+                        for="pompadour">pompadour</label></a><br>
+                <input type="checkbox" id="quiff" name="quiff" value="quiff" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=quiff"><label for="quiff">quiff</label></a><br>
+                <input type="checkbox" id="shouten_pegasus_mix_mori" name="shouten_pegasus_mix_mori"
+                    value="shouten_pegasus_mix_mori" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shouten_pegasus_mix_mori"><label
+                        for="shouten_pegasus_mix_mori">shouten pegasus mix mori</label></a><br>
+            </div>
+            <div>
+                <h3>Hair Texture</h3>
+                <input type="checkbox" id="curly_hair" name="curly_hair" value="curly_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=curly_hair"><label for="curly_hair">curly
+                        hair</label></a><br>
+                <input type="checkbox" id="drill_hair" name="drill_hair" value="drill_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=drill_hair"><label for="drill_hair">drill
+                        hair</label></a><br>
+                <input type="checkbox" id="twin_drills" name="twin_drills" value="twin_drills"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=twin_drills"><label for="twin_drills">twin
+                        drills</label></a><br>
+                <input type="checkbox" id="hair_flaps" name="hair_flaps" value="hair_flaps" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_flaps"><label for="hair_flaps">hair
+                        flaps</label></a><br>
+                <input type="checkbox" id="messy_hair" name="messy_hair" value="messy_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=messy_hair"><label for="messy_hair">messy
+                        hair</label></a><br>
+                <input type="checkbox" id="pointy_hair" name="pointy_hair" value="pointy_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pointy_hair"><label for="pointy_hair">pointy
+                        hair</label></a><br>
+                <input type="checkbox" id="ringlets" name="ringlets" value="ringlets" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ringlets"><label for="ringlets">ringlets</label></a><br>
+                <input type="checkbox" id="spiked_hair" name="spiked_hair" value="spiked_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=spiked_hair"><label for="spiked_hair">spiked
+                        hair</label></a><br>
+                <input type="checkbox" id="straight_hair" name="straight_hair" value="straight_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=straight_hair"><label for="straight_hair">straight
+                        hair</label></a><br>
+                <input type="checkbox" id="wavy_hair" name="wavy_hair" value="wavy_hair" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=wavy_hair"><label for="wavy_hair">wavy
+                        hair</label></a><br>
+            </div>
+            <div>
+                <h3>Front of the Head</h3>
+                <input type="checkbox" id="bangs" name="bangs" value="bangs" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bangs"><label for="bangs">bangs</label></a><br>
+                <input type="checkbox" id="asymmetrical_bangs" name="asymmetrical_bangs" value="asymmetrical_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=asymmetrical_bangs"><label
+                        for="asymmetrical_bangs">asymmetrical bangs</label></a><br>
+                <input type="checkbox" id="bangs_pinned_back" name="bangs_pinned_back" value="bangs_pinned_back"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=bangs_pinned_back"><label for="bangs_pinned_back">bangs
+                        pinned back</label></a><br>
+                <input type="checkbox" id="blunt_bangs" name="blunt_bangs" value="blunt_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blunt_bangs"><label for="blunt_bangs">blunt
+                        bangs</label></a><br>
+                <input type="checkbox" id="crossed_bangs" name="crossed_bangs" value="crossed_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=crossed_bangs"><label for="crossed_bangs">crossed
+                        bangs</label></a><br>
+                <input type="checkbox" id="diagonal_bangs" name="diagonal_bangs" value="diagonal_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=diagonal_bangs"><label for="diagonal_bangs">diagonal
+                        bangs</label></a><br>
+                <input type="checkbox" id="dyed_bangs" name="dyed_bangs" value="dyed_bangs" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dyed_bangs"><label for="dyed_bangs">dyed
+                        bangs</label></a><br>
+                <input type="checkbox" id="hair_over_eyes" name="hair_over_eyes" value="hair_over_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_eyes"><label for="hair_over_eyes">hair over
+                        eyes</label></a><br>
+                <input type="checkbox" id="hair_over_one_eye" name="hair_over_one_eye" value="hair_over_one_eye"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_one_eye"><label for="hair_over_one_eye">hair
+                        over one eye</label></a><br>
+                <input type="checkbox" id="long_bangs" name="long_bangs" value="long_bangs" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=long_bangs"><label for="long_bangs">long
+                        bangs</label></a><br>
+                <input type="checkbox" id="parted_bangs" name="parted_bangs" value="parted_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=parted_bangs"><label for="parted_bangs">parted
+                        bangs</label></a><br>
+                <input type="checkbox" id="curtained_hair" name="curtained_hair" value="curtained_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=curtained_hair"><label for="curtained_hair">curtained
+                        hair</label></a><br>
+                <input type="checkbox" id="ribbon_bangs" name="ribbon_bangs" value="ribbon_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ribbon_bangs"><label for="ribbon_bangs">ribbon
+                        bangs</label></a><br>
+                <input type="checkbox" id="short_bangs" name="short_bangs" value="short_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=short_bangs"><label for="short_bangs">short
+                        bangs</label></a><br>
+                <input type="checkbox" id="swept_bangs" name="swept_bangs" value="swept_bangs"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=swept_bangs"><label for="swept_bangs">swept
+                        bangs</label></a><br>
+                <input type="checkbox" id="hair_between_eyes" name="hair_between_eyes" value="hair_between_eyes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_between_eyes"><label for="hair_between_eyes">hair
+                        between eyes</label></a><br>
+                <input type="checkbox" id="hair_intakes" name="hair_intakes" value="hair_intakes"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_intakes"><label for="hair_intakes">hair
+                        intakes</label></a><br>
+                <input type="checkbox" id="single_hair_intake" name="single_hair_intake" value="single_hair_intake"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_hair_intake"><label
+                        for="single_hair_intake">single hair intake</label></a><br>
+                <input type="checkbox" id="sidelocks" name="sidelocks" value="sidelocks" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sidelocks"><label
+                        for="sidelocks">sidelocks</label></a><br>
+                <input type="checkbox" id="asymmetrical_sidelocks" name="asymmetrical_sidelocks"
+                    value="asymmetrical_sidelocks" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=asymmetrical_sidelocks"><label
+                        for="asymmetrical_sidelocks">asymmetrical sidelocks</label></a><br>
+                <input type="checkbox" id="low_tied_sidelocks" name="low_tied_sidelocks" value="low_tied_sidelocks"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=low_tied_sidelocks"><label for="low_tied_sidelocks">low
+                        tied sidelocks</label></a><br>
+                <input type="checkbox" id="sidelocks_tied_back" name="sidelocks_tied_back" value="sidelocks_tied_back"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sidelocks_tied_back"><label
+                        for="sidelocks_tied_back">sidelocks tied back</label></a><br>
+                <input type="checkbox" id="single_sidelock" name="single_sidelock" value="single_sidelock"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_sidelock"><label for="single_sidelock">single
+                        sidelock</label></a><br>
+                <input type="checkbox" id="widow's_peak" name="widow's_peak" value="widow's_peak"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=widow%27s_peak"><label for="widow's_peak">widow's
+                        peak</label></a><br>
+            </div>
+            <div>
+                <h3>Top of the Head</h3>
+                <input type="checkbox" id="ahoge" name="ahoge" value="ahoge" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ahoge"><label for="ahoge">ahoge</label></a><br>
+                <input type="checkbox" id="heart_ahoge" name="heart_ahoge" value="heart_ahoge"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart_ahoge"><label for="heart_ahoge">heart
+                        ahoge</label></a><br>
+                <input type="checkbox" id="huge_ahoge" name="huge_ahoge" value="huge_ahoge" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=huge_ahoge"><label for="huge_ahoge">huge
+                        ahoge</label></a><br>
+                <input type="checkbox" id="antenna_hair" name="antenna_hair" value="antenna_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=antenna_hair"><label for="antenna_hair">antenna
+                        hair</label></a><br>
+                <input type="checkbox" id="heart_antenna_hair" name="heart_antenna_hair" value="heart_antenna_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart_antenna_hair"><label for="heart_antenna_hair">heart
+                        antenna hair</label></a><br>
+                <input type="checkbox" id="comb_over" name="comb_over" value="comb_over" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=comb_over"><label for="comb_over">comb
+                        over</label></a><br>
+                <input type="checkbox" id="hair_pulled_back" name="hair_pulled_back" value="hair_pulled_back"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_pulled_back"><label for="hair_pulled_back">hair
+                        pulled back</label></a><br>
+                <input type="checkbox" id="hair_slicked_back" name="hair_slicked_back" value="hair_slicked_back"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_slicked_back"><label for="hair_slicked_back">hair
+                        slicked back</label></a><br>
+                <input type="checkbox" id="mohawk" name="mohawk" value="mohawk" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mohawk"><label for="mohawk">mohawk</label></a><br>
+                <input type="checkbox" id="oseledets" name="oseledets" value="oseledets" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=oseledets"><label
+                        for="oseledets">oseledets</label></a><br>
+            </div>
+            <div>
+                <h3>Back of the Head</h3>
+                <input type="checkbox" id="lone_nape_hair" name="lone_nape_hair" value="lone_nape_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lone_nape_hair"><label for="lone_nape_hair">lone nape
+                        hair</label></a><br>
+            </div>
+            <div>
+                <h3>Head Hair over the Body</h3>
+                <input class="nsfw" type="checkbox" id="hair_bikini" name="hair_bikini" value="hair_bikini"
+                    onchange="tagchanged(this)">
+                <a class="nsfw" href="https://danbooru.donmai.us/posts?tags=hair_bikini"><label for="hair_bikini">hair
+                        bikini</label></a><br class="nsfw">
+                <input class="nsfw" type="checkbox" id="hair_censor" name="hair_censor" value="hair_censor"
+                    onchange="tagchanged(this)">
+                <a class="nsfw" href="https://danbooru.donmai.us/posts?tags=hair_censor"><label for="hair_censor">hair
+                        censor</label></a><br class="nsfw">
+                <input type="checkbox" id="hair_in_own_mouth" name="hair_in_own_mouth" value="hair_in_own_mouth"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_in_own_mouth"><label for="hair_in_own_mouth">hair in
+                        own mouth</label></a><br>
+                <input type="checkbox" id="hair_over_breasts" name="hair_over_breasts" value="hair_over_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_breasts"><label for="hair_over_breasts">hair
+                        over breasts</label></a><br>
+                <input type="checkbox" id="hair_over_one_breast" name="hair_over_one_breast"
+                    value="hair_over_one_breast" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_one_breast"><label
+                        for="hair_over_one_breast">hair over one breast</label></a><br>
+                <input type="checkbox" id="hair_over_crotch" name="hair_over_crotch" value="hair_over_crotch"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_crotch"><label for="hair_over_crotch">hair over
+                        crotch</label></a><br>
+                <input type="checkbox" id="hair_over_shoulder" name="hair_over_shoulder" value="hair_over_shoulder"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_over_shoulder"><label for="hair_over_shoulder">hair
+                        over shoulder</label></a><br>
+                <input type="checkbox" id="hair_scarf" name="hair_scarf" value="hair_scarf" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_scarf"><label for="hair_scarf">hair
+                        scarf</label></a><br>
+            </div>
+            <div>
+                <h3>Misc Hair Styling</h3>
+                <input type="checkbox" id="asymmetrical_hair" name="asymmetrical_hair" value="asymmetrical_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=asymmetrical_hair"><label
+                        for="asymmetrical_hair">asymmetrical hair</label></a><br>
+                <input type="checkbox" id="sidecut" name="sidecut" value="sidecut" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sidecut"><label for="sidecut">sidecut</label></a><br>
+                <input type="checkbox" id="blunt_ends" name="blunt_ends" value="blunt_ends" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blunt_ends"><label for="blunt_ends">blunt
+                        ends</label></a><br>
+                <input type="checkbox" id="hair_wings" name="hair_wings" value="hair_wings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=hair_wings"><label for="hair_wings">hair
+                        wings</label></a><br>
+            </div>
+            <div>
+                <h3>Head Misc</h3>
+                <input type="checkbox" id="head_wings" name="head_wings" value="head_wings" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=head_wings"><label for="head_wings">head
+                        wings</label></a><br>
+                <input type="checkbox" id="head_fins" name="head_fins" value="head_fins" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=head_fins"><label for="head_fins">head
+                        fins</label></a><br>
+                <input type="checkbox" id="single_head_wing" name="single_head_wing" value="single_head_wing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_head_wing"><label for="single_head_wing">single
+                        head wing</label></a><br>
+                <input type="checkbox" id="mole_on_neck" name="mole_on_neck" value="mole_on_neck"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_on_neck"><label for="mole_on_neck">mole on
+                        neck</label></a><br>
+            </div>
+            <div>
+                <h3>Lip Color</h3>
+                <input type="checkbox" id="aqua_lips" name="aqua_lips" value="aqua_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=aqua_lips"><label for="aqua_lips">aqua
+                        lips</label></a><br>
+                <input type="checkbox" id="black_lips" name="black_lips" value="black_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=black_lips"><label for="black_lips">black
+                        lips</label></a><br>
+                <input type="checkbox" id="blue_lips" name="blue_lips" value="blue_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_lips"><label for="blue_lips">blue
+                        lips</label></a><br>
+                <input type="checkbox" id="grey_lips" name="grey_lips" value="grey_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=grey_lips"><label for="grey_lips">grey
+                        lips</label></a><br>
+                <input type="checkbox" id="green_lips" name="green_lips" value="green_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_lips"><label for="green_lips">green
+                        lips</label></a><br>
+                <input type="checkbox" id="orange_lips" name="orange_lips" value="orange_lips"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_lips"><label for="orange_lips">orange
+                        lips</label></a><br>
+                <input type="checkbox" id="pink_lips" name="pink_lips" value="pink_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pink_lips"><label for="pink_lips">pink
+                        lips</label></a><br>
+                <input type="checkbox" id="purple_lips" name="purple_lips" value="purple_lips"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_lips"><label for="purple_lips">purple
+                        lips</label></a><br>
+                <input type="checkbox" id="red_lips" name="red_lips" value="red_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=red_lips"><label for="red_lips">red lips</label></a><br>
+                <input type="checkbox" id="shiny_lips" name="shiny_lips" value="shiny_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=shiny_lips"><label for="shiny_lips">shiny
+                        lips</label></a><br>
+                <input type="checkbox" id="yellow_lips" name="yellow_lips" value="yellow_lips"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_lips"><label for="yellow_lips">yellow
+                        lips</label></a><br>
+            </div>
+            <div>
+                <h3>Lips Misc</h3>
+                <input type="checkbox" id="dry_lips" name="dry_lips" value="dry_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dry_lips"><label for="dry_lips">dry lips</label></a><br>
+                <input type="checkbox" id="lip_balm" name="lip_balm" value="lip_balm" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lip_balm"><label for="lip_balm">lip balm</label></a><br>
+                <input type="checkbox" id="lip_piercing" name="lip_piercing" value="lip_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=lip_piercing"><label for="lip_piercing">lip
+                        piercing</label></a><br>
+                <input type="checkbox" id="puffy_lips" name="puffy_lips" value="puffy_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=puffy_lips"><label for="puffy_lips">puffy
+                        lips</label></a><br>
+                <input type="checkbox" id="thick_lips" name="thick_lips" value="thick_lips" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=thick_lips"><label for="thick_lips">thick
+                        lips</label></a><br>
+                <input type="checkbox" id="labret_piercing" name="labret_piercing" value="labret_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=labret_piercing"><label for="labret_piercing">labret
+                        piercing</label></a><br>
+                <input type="checkbox" id="mole_above_mouth" name="mole_above_mouth" value="mole_above_mouth"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_above_mouth"><label for="mole_above_mouth">mole
+                        above mouth</label></a><br>
+                <input type="checkbox" id="mole_under_mouth" name="mole_under_mouth" value="mole_under_mouth"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_under_mouth"><label for="mole_under_mouth">mole
+                        under mouth</label></a><br>
+            </div>
+            <div>
+                <h3>Tongue</h3>
+                <input type="checkbox" id="tongue_piercing" name="tongue_piercing" value="tongue_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tongue_piercing"><label for="tongue_piercing">tongue
+                        piercing</label></a><br>
+                <input type="checkbox" id="long_tongue" name="long_tongue" value="long_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=long_tongue"><label for="long_tongue">long
+                        tongue</label></a><br>
+                <input type="checkbox" id="very_long_tongue" name="very_long_tongue" value="very_long_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=very_long_tongue"><label for="very_long_tongue">very long
+                        tongue</label></a><br>
+                <input type="checkbox" id="prehensile_tongue" name="prehensile_tongue" value="prehensile_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=prehensile_tongue"><label
+                        for="prehensile_tongue">prehensile tongue</label></a><br>
+                <input type="checkbox" id="barbed_tongue" name="barbed_tongue" value="barbed_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=barbed_tongue"><label for="barbed_tongue">barbed
+                        tongue</label></a><br>
+                <input type="checkbox" id="tongue_piercing" name="tongue_piercing" value="tongue_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tongue_piercing"><label for="tongue_piercing">tongue
+                        piercing</label></a><br>
+                <input type="checkbox" id="forked_tongue" name="forked_tongue" value="forked_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=forked_tongue"><label for="forked_tongue">forked
+                        tongue</label></a><br>
+                <input type="checkbox" id="blue_tongue" name="blue_tongue" value="blue_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=blue_tongue"><label for="blue_tongue">blue
+                        tongue</label></a><br>
+                <input type="checkbox" id="green_tongue" name="green_tongue" value="green_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=green_tongue"><label for="green_tongue">green
+                        tongue</label></a><br>
+                <input type="checkbox" id="orange_tongue" name="orange_tongue" value="orange_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=orange_tongue"><label for="orange_tongue">orange
+                        tongue</label></a><br>
+                <input type="checkbox" id="purple_tongue" name="purple_tongue" value="purple_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=purple_tongue"><label for="purple_tongue">purple
+                        tongue</label></a><br>
+                <input type="checkbox" id="yellow_tongue" name="yellow_tongue" value="yellow_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=yellow_tongue"><label for="yellow_tongue">yellow
+                        tongue</label></a><br>
+                <input type="checkbox" id="heart_tongue" name="heart_tongue" value="heart_tongue"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=heart_tongue"><label for="heart_tongue">heart
+                        tongue</label></a><br>
+            </div>
+        </div>
+        <h2 id="upper_torso">Upper Torso</h2>
+        <div class="box">
+            <div>
+                <h3>Armpits</h3>
+                <input type="checkbox" id="armpit_hair" name="armpit_hair" value="armpit_hair"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=armpit_hair"><label for="armpit_hair">armpit
+                        hair</label></a><br>
+                <input type="checkbox" id="armpit_stubble" name="armpit_stubble" value="armpit_stubble"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=armpit_stubble"><label for="armpit_stubble">armpit
+                        stubble</label></a><br>
+            </div>
+            <div>
+                <h3>Back</h3>
+                <input type="checkbox" id="median_furrow" name="median_furrow" value="median_furrow"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=median_furrow"><label for="median_furrow">median
+                        furrow</label></a><br>
+                <input type="checkbox" id="dimples_of_venus" name="dimples_of_venus" value="dimples_of_venus"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dimples_of_venus"><label for="dimples_of_venus">dimples
+                        of venus</label></a><br>
+            </div>
+            <div class="nsfw">
+                <h3>Areolae</h3>
+                <input type="checkbox" id="areola_piercing" name="areola_piercing" value="areola_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=areola_piercing"><label for="areola_piercing">areola
+                        piercing</label></a><br>
+                <input type="checkbox" id="light_areolae" name="light_areolae" value="light_areolae"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=light_areolae"><label for="light_areolae">light
+                        areolae</label></a><br>
+                <input type="checkbox" id="dark_areolae" name="dark_areolae" value="dark_areolae"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dark_areolae"><label for="dark_areolae">dark
+                        areolae</label></a><br>
+                <input type="checkbox" id="large_areolae" name="large_areolae" value="large_areolae"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=large_areolae"><label for="large_areolae">large
+                        areolae</label></a><br>
+                <input type="checkbox" id="glands_of_montgomery" name="glands_of_montgomery"
+                    value="glands_of_montgomery" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=glands_of_montgomery"><label
+                        for="glands_of_montgomery">glands of montgomery</label></a><br>
+            </div>
+            <div>
+                <h3>Breast Size</h3>
+                <input type="checkbox" id="flat_chest" name="flat_chest" value="flat_chest" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=flat_chest"><label for="flat_chest">flat
+                        chest</label></a><br>
+                <input type="checkbox" id="small_breasts" name="small_breasts" value="small_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=small_breasts"><label for="small_breasts">small
+                        breasts</label></a><br>
+                <input type="checkbox" id="medium_breasts" name="medium_breasts" value="medium_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=medium_breasts"><label for="medium_breasts">medium
+                        breasts</label></a><br>
+                <input type="checkbox" id="large_breasts" name="large_breasts" value="large_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=large_breasts"><label for="large_breasts">large
+                        breasts</label></a><br>
+                <input type="checkbox" id="huge_breasts" name="huge_breasts" value="huge_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=huge_breasts"><label for="huge_breasts">huge
+                        breasts</label></a><br>
+                <input type="checkbox" id="gigantic_breasts" name="gigantic_breasts" value="gigantic_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=gigantic_breasts"><label for="gigantic_breasts">gigantic
+                        breasts</label></a><br>
+            </div>
+            <div>
+                <h3>Breast Shape</h3>
+                <input type="checkbox" id="asymmetrical_breasts" name="asymmetrical_breasts"
+                    value="asymmetrical_breasts" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=asymmetrical_breasts"><label
+                        for="asymmetrical_breasts">asymmetrical breasts</label></a><br>
+                <input type="checkbox" id="perky_breasts" name="perky_breasts" value="perky_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=perky_breasts"><label for="perky_breasts">perky
+                        breasts</label></a><br>
+                <input type="checkbox" id="pointy_breasts" name="pointy_breasts" value="pointy_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=pointy_breasts"><label for="pointy_breasts">pointy
+                        breasts</label></a><br>
+                <input type="checkbox" id="sagging_breasts" name="sagging_breasts" value="sagging_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=sagging_breasts"><label for="sagging_breasts">sagging
+                        breasts</label></a><br>
+                <input type="checkbox" id="uniboob" name="uniboob" value="uniboob" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=uniboob"><label for="uniboob">uniboob</label></a><br>
+                <input type="checkbox" id="veiny_breasts" name="veiny_breasts" value="veiny_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=veiny_breasts"><label for="veiny_breasts">veiny
+                        breasts</label></a><br>
+            </div>
+            <div class="nsfw">
+                <h3>Toys on Breasts</h3>
+                <input type="checkbox" id="nipple_clamps" name="nipple_clamps" value="nipple_clamps"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_clamps"><label for="nipple_clamps">nipple
+                        clamps</label></a><br>
+                <input type="checkbox" id="nipple_leash" name="nipple_leash" value="nipple_leash"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_leash"><label for="nipple_leash">nipple
+                        leash</label></a><br>
+                <input type="checkbox" id="nipple_piercing" name="nipple_piercing" value="nipple_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_piercing"><label for="nipple_piercing">nipple
+                        piercing</label></a><br>
+                <input type="checkbox" id="nipple_bar" name="nipple_bar" value="nipple_bar" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_bar"><label for="nipple_bar">nipple
+                        bar</label></a><br>
+                <input type="checkbox" id="nipple_bells" name="nipple_bells" value="nipple_bells"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_bells"><label for="nipple_bells">nipple
+                        bells</label></a><br>
+                <input type="checkbox" id="nipple_chain" name="nipple_chain" value="nipple_chain"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_chain"><label for="nipple_chain">nipple
+                        chain</label></a><br>
+                <input type="checkbox" id="nipple_lock" name="nipple_lock" value="nipple_lock"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_lock"><label for="nipple_lock">nipple
+                        lock</label></a><br>
+                <input type="checkbox" id="nipple_rings" name="nipple_rings" value="nipple_rings"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_rings"><label for="nipple_rings">nipple
+                        rings</label></a><br>
+                <input type="checkbox" id="nipple_stretcher" name="nipple_stretcher" value="nipple_stretcher"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_stretcher"><label for="nipple_stretcher">nipple
+                        stretcher</label></a><br>
+                <input type="checkbox" id="nipple_tag" name="nipple_tag" value="nipple_tag" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_tag"><label for="nipple_tag">nipple
+                        tag</label></a><br>
+                <input type="checkbox" id="nipple tassels" name="nipple tassels" value="nipple tassels"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple%20tassels"><label for="nipple tassels">nipple
+                        tassels</label></a><br>
+                <input type="checkbox" id="nipple_plug" name="nipple_plug" value="nipple_plug"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_plug"><label for="nipple_plug">nipple
+                        plug</label></a><br>
+                <input type="checkbox" id="nipple_sleeves" name="nipple_sleeves" value="nipple_sleeves"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_sleeves"><label for="nipple_sleeves">nipple
+                        sleeves</label></a><br>
+                <input type="checkbox" id="tied_nipples" name="tied_nipples" value="tied_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=tied_nipples"><label for="tied_nipples">tied
+                        nipples</label></a><br>
+                <input type="checkbox" id="nipple_ribbon" name="nipple_ribbon" value="nipple_ribbon"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=nipple_ribbon"><label for="nipple_ribbon">nipple
+                        ribbon</label></a><br>
+                <input type="checkbox" id="vibrator_on_nipple" name="vibrator_on_nipple" value="vibrator_on_nipple"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=vibrator_on_nipple"><label
+                        for="vibrator_on_nipple">vibrator on nipple</label></a><br>
+            </div>
+            <div>
+                <h3>Breast Misc</h3>
+                <input type="checkbox" id="breast_implants" name="breast_implants" value="breast_implants"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=breast_implants"><label for="breast_implants">breast
+                        implants</label></a><br>
+                <input type="checkbox" id="extra_breasts" name="extra_breasts" value="extra_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=extra_breasts"><label for="extra_breasts">extra
+                        breasts</label></a><br>
+                <input type="checkbox" id="male_with_breasts" name="male_with_breasts" value="male_with_breasts"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=male_with_breasts"><label for="male_with_breasts">male
+                        with breasts</label></a><br>
+                <input type="checkbox" id="mole_on_breast" name="mole_on_breast" value="mole_on_breast"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=mole_on_breast"><label for="mole_on_breast">mole on
+                        breast</label></a><br>
+            </div>
+            <div>
+                <h3>Nipples</h3>
+                <input type="checkbox" id="colored_nipples" name="colored_nipples" value="colored_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=colored_nipples"><label for="colored_nipples">colored
+                        nipples</label></a><br>
+                <input type="checkbox" id="dark_nipples" name="dark_nipples" value="dark_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=dark_nipples"><label for="dark_nipples">dark
+                        nipples</label></a><br>
+                <input type="checkbox" id="extra_nipples" name="extra_nipples" value="extra_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=extra_nipples"><label for="extra_nipples">extra
+                        nipples</label></a><br>
+                <input type="checkbox" id="huge_nipples" name="huge_nipples" value="huge_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=huge_nipples"><label for="huge_nipples">huge
+                        nipples</label></a><br>
+                <input type="checkbox" id="inverted_nipples" name="inverted_nipples" value="inverted_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=inverted_nipples"><label for="inverted_nipples">inverted
+                        nipples</label></a><br>
+                <input type="checkbox" id="single_inverted_nipple" name="single_inverted_nipple"
+                    value="single_inverted_nipple" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=single_inverted_nipple"><label
+                        for="single_inverted_nipple">single inverted nipple</label></a><br>
+                <input type="checkbox" id="long_nipples" name="long_nipples" value="long_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=long_nipples"><label for="long_nipples">long
+                        nipples</label></a><br>
+                <input type="checkbox" id="no_nipples" name="no_nipples" value="no_nipples" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=no_nipples"><label for="no_nipples">no
+                        nipples</label></a><br>
+                <input type="checkbox" id="puffy_nipples" name="puffy_nipples" value="puffy_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=puffy_nipples"><label for="puffy_nipples">puffy
+                        nipples</label></a><br>
+                <input type="checkbox" id="small_nipples" name="small_nipples" value="small_nipples"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=small_nipples"><label for="small_nipples">small
+                        nipples</label></a><br>
+            </div>
+            <div>
+                <h3>Upper Torso Misc</h3>
+                <input type="checkbox" id="collarbone_piercing" name="collarbone_piercing" value="collarbone_piercing"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=collarbone_piercing"><label
+                        for="collarbone_piercing">collarbone piercing</label></a><br>
+                <input type="checkbox" id="large_pectorals" name="large_pectorals" value="large_pectorals"
+                    onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=large_pectorals"><label for="large_pectorals">large
+                        pectorals</label></a><br>
+                <input type="checkbox" id="manboobs" name="manboobs" value="manboobs" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=manboobs"><label for="manboobs">manboobs</label></a><br>
+                <input type="checkbox" id="ribs" name="ribs" value="ribs" onchange="tagchanged(this)">
+                <a href="https://danbooru.donmai.us/posts?tags=ribs"><label for="ribs">ribs</label></a><br>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
