@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Orbit', sans-serif;
+    font-size: 2.75vmin;
+    font-weight: normal;
+    margin: initial;
+    padding: initial;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    margin-top: 6vmin;
+    font-size: 6vmin;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 5vmin;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+
+h3 {
+    margin-top: 4vmin;
+    font-size: 4vmin;
+    font-weight: bold;
+}
+
+h4 {
+    margin-top: 1vmin;
+    font-size: 2.75vmin;
+    font-weight: bold;
+}
+
+span {
+    font-size: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    font: inherit;
+    background-color: rgba(0, 0, 0, 0);
+    transition: color, background-color 1s;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+}
+
+a:hover,
+a:active {
+    color: #fff;
+    transition: color, background-color 1s;
+    background-color: rgb(0, 0, 0);
+}
+
+svg {
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    transition: color, background-color 1s;
+}
+
+svg:hover {
+    fill: #fff;
+    transition: color, background-color 1s;
+    background-color: rgb(0, 0, 0);
+}
+
+.navbar-item {
+    text-decoration: none;
+    padding: 1vmin;
+    margin-bottom: 1vmin;
+    width: fit-content;
+}
+
+.background {
+    user-select: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    opacity: 0.85;
+    z-index: -2;
+}
+
+.background-diagram {
+    top: -18vmin;
+    object-fit: cover;
+    height: auto;
+    opacity: 0.65;
+    z-index: -1;
+}
+
+.background-icon {
+    top: initial;
+    bottom: -12vh;
+    left: -5vw;
+    object-fit: cover;
+    width: 25vmax;
+    height: auto;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.content {
+    margin-top: 5vmin;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    float: right;
+    text-align: right;
+    animation: 1s fadeIn 0.5s both;
+}
+
+.image-gallery {
+    column-count: 3;
+    column-gap: 1rem;
+    margin-top: 10vmin;
+}
+
+figure.image-gallery-tile {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+}
+
+.image-gallery-tile img {
+    width: 100%;
+    display: block;
+    grid-row: 1 / -1;
+    grid-column: 1;
+}
+
+figcaption {
+    /*grid-row: 2;
+    grid-column: 1;*/
+    background-color: #eee;
+    padding: 0.333333rem 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: 2vmin;
+}
+
+@media screen and (min-width: 600px) {
+    .content {
+        width: 80%;
+    }
+}
+
+#name {
+    font-family: 'Geo', sans-serif;
+    font-size: 11vmin;
+    font-weight: bold;
+    width: fit-content;
+    padding: 2vmin;
+    margin-bottom: 1vmin;
+}
+
+#title {
+    width: 70vw;
+    float: right;
+    text-align: right;
+    padding: 2vmin;
+    animation: fadeIn 1s both;
+}
+
+#title-1 {
+    font-family: 'Rubik 80s Fade', cursive;
+    font-size: 18vmin;
+}
+
+#title-2 {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 18vmin;
+}
+
+#title-3 {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 18vmin;
+}
+
+#title-4 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 18vmin;
+}
+
+#title-5 {
+    font-family: 'Rubik Dirt', cursive;
+    font-size: 18vmin;
+}
+
+#title-6 {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 13.5vmin;
+}
+
+#title-7 {
+    font-family: 'Grandiflora One', serif;
+    font-size: 13.5vmin;
+}
+
+#title-8 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 18vmin;
+}
+
+#title-9 {
+    font-family: 'Syne Tactile', cursive;
+    font-size: 18vmin;
+}
+
+#title-10 {
+    font-family: 'Rock 3D', cursive;
+    font-size: 18vmin;
+}
+
+#title-11 {
+    font-family: 'Barrio', cursive;
+    font-size: 18vmin;
+}
+
+#title-12 {
+    font-family: 'Shizuru', cursive;
+    font-size: 18vmin;
+}
+
+#quote {
+    user-select: none;
+    position: fixed;
+    font-family: 'Rock 3D', cursive;
+    font-size: 100%;
+    color: #999;
+    text-align: right;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    left: 20vmin;
+    z-index: -1;
+}
+
+#barcode {
+    font-family: 'Libre Barcode 128', cursive;
+    font-size: 6vmin;
+    float: right;
+    text-align: right;
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;
+    padding-right: 1vmin;
+    width: 70vw;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    animation: 1s fadeIn 0.25s both;
+}
+
+#self-description {
+    padding-top: 10vmin;
+    width: 60vw;
+}
+
+#navbar {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vmin;
+    padding-top: 2vmin;
+    font-family: 'Geo', sans-serif;
+    font-size: 6vmin;
+    position: fixed;
+    line-height: 7vmin;
+    z-index: 99;
+}
+
+#navbar-icons {
+    width: auto;
+    height: 5vmin;
+    display: flex;
+    margin-bottom: 2vmin;
+}
+
+#navbar-icons svg {
+    height: 100%;
+    width: 100%;
+    padding: 0.5vmin;
+}
+
+#navbar-icons a {
+    margin-right: 1vmin;
+    background-color: initial;
+}
+
+#navbar-icons a:link,
+#navbar-icons a:visited {
+    color: inherit;
+}
+
+#navbar-icons a:hover,
+#navbar-icons a:active {
+    color: inherit;
+    background-color: initial;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
