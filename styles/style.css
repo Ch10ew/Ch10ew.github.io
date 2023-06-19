@@ -41,12 +41,22 @@ span {
     font-size: inherit;
 }
 
+hr {
+    margin-top: 2.75vmin;
+    border: 0;
+    clear: both;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 1px;
+}
+
 a {
     color: inherit;
     text-decoration: underline;
     font: inherit;
     background-color: rgba(0, 0, 0, 0);
-    transition: color, background-color 1s;
+    transition: color, background-color 0.75s;
 }
 
 a:link,
@@ -57,19 +67,34 @@ a:visited {
 a:hover,
 a:active {
     color: #fff;
-    transition: color, background-color 1s;
+    transition: color, background-color 0.75s;
+    background-color: rgb(0, 0, 0);
+}
+
+button {
+    color: inherit;
+    text-decoration: underline;
+    font: inherit;
+    background-color: rgba(0, 0, 0, 0);
+    transition: color, background-color 0.75s;
+}
+
+button:hover,
+button:active {
+    color: #fff;
+    transition: color, background-color 0.75s;
     background-color: rgb(0, 0, 0);
 }
 
 svg {
     display: block;
     background-color: rgba(0, 0, 0, 0);
-    transition: color, background-color 1s;
+    transition: color, background-color 0.75s;
 }
 
 svg:hover {
     fill: #fff;
-    transition: color, background-color 1s;
+    transition: color, background-color 0.75s;
     background-color: rgb(0, 0, 0);
 }
 
@@ -123,10 +148,75 @@ svg:hover {
     animation: 1s fadeIn 0.5s both;
 }
 
+.bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5vmin;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bar-item {
+    text-align: center;
+}
+
+.bar .bar-item {
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.tabs label {
+    order: 1;
+    display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    transition: background-color 0.75s;
+}
+
+.tabs .tab {
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 1rem;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+    transition: all 0.75s;
+}
+
+input[type='radio']:hover+label {
+    background-color: rgba(0, 0, 0);
+    color: #fff;
+}
+
+.tabs input[type="radio"]:checked+label {
+    background-color: rgba(0, 0, 0);
+    color: #fff;
+}
+
+.tabs input[type="radio"]:checked+label+.tab {
+    display: block;
+}
+
 .image-gallery {
     column-count: 1;
     column-gap: 1rem;
-    margin-top: 10vmin;
+    margin-top: 4vmin;
 }
 
 figure.image-gallery-tile {
@@ -135,6 +225,13 @@ figure.image-gallery-tile {
     grid-template-rows: 1fr auto;
     margin-bottom: 1rem;
     break-inside: avoid;
+}
+
+audio {
+    width: 100%;
+    margin-top: 4vmin;
+    padding-bottom: 1vmin;
+    background-color: #f1f3f4;
 }
 
 .image-gallery-tile img {
@@ -147,7 +244,7 @@ figure.image-gallery-tile {
 figcaption {
     /*grid-row: 2;
     grid-column: 1;*/
-    background-color: #eee;
+    background-color: #f1f3f4;
     padding: 0.333333rem 1rem;
     width: 100%;
     text-align: left;
@@ -161,6 +258,20 @@ figcaption {
 
     .image-gallery {
         column-count: 3;
+    }
+}
+
+@media screen and (max-width: 599px) {
+
+    .tabs .tab,
+    .tabs label {
+        order: initial;
+    }
+
+    .tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
     }
 }
 
